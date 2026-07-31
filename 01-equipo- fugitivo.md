@@ -2,23 +2,23 @@
 
 ## Proyecto
 
-- Nombre provisional:
+- Nombre provisional: 
 - Organización:
-- Fecha:
+- Fecha: 31-07-2026
 
 ## Integrantes y roles
 
 | Integrante | Rol principal | Fortalezas | Responsabilidad inicial |
 |---|---|---|---|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| Alejandra Mamani| | | |
+| Francisca Calle| | | |
+| Liseth Capia| | | |
+| Isabel Fernandez| | | |
+| Beymar Quispe| | | |
 
 ## Normas internas
 
-- Canal de comunicación:
+- Canal de comunicación:WhatsApp
 - Horario de coordinación:
 - Forma de tomar decisiones:
 - Procedimiento ante inasistencia:
@@ -36,8 +36,8 @@
 
 | Integrante | Confirmación |
 |---|---|
-| | |
-| | |
-| | |
-| | |
-| | |
+| Alejandra Mamani| |
+| Francisca Calle| |
+| Liseth Capia| |
+| Isabel Fernandez| |
+| Beymar Quispe| |
