@@ -9,16 +9,16 @@ Una aplicación ejecutable localmente, con base de datos, documentación y demos
 
 ## Fases
 
-Aplicación.
-Base de datos.
-Código fuente.
-Documentación.
-Repositorio.
-Presentación.
-Defensa.
+-Aplicación.
+-Base de datos.
+-Código fuente.
+-Documentación.
+-Repositorio.
+-Presentación.
+-Defensa.
 
 ## valuaciones
 
-Presentación de propuesta.
-Seguimientos del proceso.
-Presentación y defensa final
+-Presentación de propuesta.
+-Seguimientos del proceso.
+-Presentación y defensa final
