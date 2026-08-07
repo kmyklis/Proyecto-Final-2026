@@ -21,8 +21,8 @@
 - Canal de comunicación: WhatsApp
 - Horario de coordinación: Martes, Miercoles, Viernes de las 08:00 am hasta las 04:50 pm.
 - Forma de tomar decisiones: tomar en cuenta la opinion de todos y llegar a una solución que aproben todos.
-- Procedimiento ante inasistencia:recurrir ante jefe o lider del equipo e informar al profesor jefe justificando la causa.
-- Procedimiento ante tareas atrasadas:con la ayuda del equipo terminariamos el procedimiento de la tarea pendiente lo antes posible.
+- Procedimiento ante inasistencia: recurrir ante jefe o lider del equipo e informar al profesor jefe justificando la causa.
+- Procedimiento ante tareas atrasadas: con la ayuda del equipo terminaríamos el procedimiento de la tarea pendiente lo antes posible.
 
 ## Compromisos
 
