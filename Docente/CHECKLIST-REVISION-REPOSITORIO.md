@@ -2,11 +2,11 @@
 
 ## Organización
 
-- [ ] README actualizado.
-- [ ] Integrantes y roles.
-- [ ] Issues con responsables.
-- [ ] Pull requests revisados.
-- [ ] Rama principal estable.
+- [x] README actualizado.
+- [x] Integrantes y roles.
+- [x] Issues con responsables.
+- [x] Pull requests revisados.
+- [x] Rama principal estable.
 
 ## Documentación
 
