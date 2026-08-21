@@ -40,11 +40,17 @@ La información de las salidas no se informan en un cierto lugar y de hecho eso 
 ## Beneficiarios
 
 - Directos:
+- -Los profesopres que organizan las salidas a terreno
+- Profesores jefes que necesitan conocer que estudiantes participan
+- estudiantes que participan en las actividades 
 - Indirectos:
+- -Personal encargado de la gestión escolar
+- Comunidad educativa
+- apoderados, al contar con información mas organizada sobre las actividades de lso estudiantes
 
 ## Pregunta del proyecto
 
-> ¿Cómo podríamos...?
+> ¿Cómo podríamos mejorar la comunicación y la información sobre las salidas a terrenno considerando la participación de los estudiantes mediantes una plataforma web fija?
 
 ## Validación
 
