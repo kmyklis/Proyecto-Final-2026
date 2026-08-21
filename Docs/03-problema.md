@@ -45,8 +45,8 @@ Redactar el problema en un párrafo claro.
 
 ## Validación
 
-- [ ] El problema es real.
-- [ ] Existen usuarios afectados.
-- [ ] Hay evidencia.
-- [ ] Puede abordarse en tres meses.
-- [ ] Una solución informática es pertinente.
+- [x] El problema es real.
+- [x] Existen usuarios afectados.
+- [x] Hay evidencia.
+- [x] Puede abordarse en tres meses.
+- [x] Una solución informática es pertinente.
