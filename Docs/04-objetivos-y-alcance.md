@@ -1,7 +1,7 @@
 # Objetivos y alcance
 
 ## Objetivo general
-Desarrollarf una aplicación web el cual 
+
 
 ## Objetivos específicos
 
