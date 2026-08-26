@@ -2,7 +2,7 @@
 
 | ID | Tarea | Responsable | Inicio | Término | Dependencia | Estado | Evidencia |
 |---|---|---|---|---|---|---|---|
-| 1 | Formar equipo | | | | Ninguna | Pendiente | |
+| 1 | Formar equipo | | | | Ninguna | terminada | |
 | 2 | Investigar organización | | | | 1 | Pendiente | |
 | 3 | Formular problema | | | | 2 | Pendiente | |
 | 4 | Definir objetivos y alcance | | | | 3 | Pendiente | |
