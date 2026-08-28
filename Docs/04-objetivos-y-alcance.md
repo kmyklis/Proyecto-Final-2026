@@ -28,6 +28,7 @@ Desarrollar una aplicación web el cual gestione y comunique la información con
 - notificaciones por correo
 
 ## Resultado esperado al 27/10/2026
+Contar con una aplicación web que permita registrar, organizar,justificar y consultar información relacionada con las salidas a terreno y los estudiantes participantes para no tener problemas dentro del establecimiento por una desinformación, centralizando la información para facilitar la comunicación entre los profesores y UTP
 
 
 ## Indicadores de logro
