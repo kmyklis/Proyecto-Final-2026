@@ -23,34 +23,34 @@ La información de las salidas no se informan en un cierta plataforma o medio de
 
 | Evidencia | Descripción | Fecha | Fuente |
 |---|---|---|---|
-| Entrevista  | Se recopilo información sobre como actualmente se comunican y gestiona las actividades y salidas a terreno, identificando las dificultades de comunicación y registro de estudiantes| 14- 08-2026 | Docentes,Entrevista realizada por el equipo |
+| Entrevista  | Se recopiló información sobre como actualmente se comunican y gestiona las actividades y salidas a terreno, identificando las dificultades de comunicación y registro de estudiantes| 14- 08-2026 | Docentes,Entrevista realizada por el equipo |
 
 ## Causas
 
 - La falta de una plataforma fija 
-- uso de mediuos informales para comunicar las actividades
+- uso de medios informales para comunicar las actividades
 - 
 
 ## Consecuencias
 
-- Confusión sobre estudiantes estan participando 
+- Confusión sobre estudiantes que estan participando 
 - Perdida o demora en la información importante
-- Posibles problemas al justificar innancistencias
+- Posibles problemas al justificar inasistencias
 
 ## Beneficiarios
 
 - Directos:
-- -Los profesopres que organizan las salidas a terreno
+- -Los profesores que organizan las salidas a terreno
 - Profesores jefes que necesitan conocer que estudiantes participan
 - estudiantes que participan en las actividades 
 - Indirectos:
 - -Personal encargado de la gestión escolar
 - Comunidad educativa
-- apoderados, al contar con información mas organizada sobre las actividades de lso estudiantes
+- apoderados, al contar con información mas organizada sobre las actividades de los estudiantes
 
 ## Pregunta del proyecto
 
-> ¿Cómo podríamos mejorar la comunicación y la información sobre las salidas a terrenno considerando la participación de los estudiantes mediantes una plataforma web fija?
+> ¿Cómo podríamos mejorar la comunicación y la información sobre las salidas a terreno considerando la participación de los estudiantes mediantes una plataforma web fija?
 
 ## Validación
 
