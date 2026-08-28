@@ -13,7 +13,7 @@
 
 ## Proceso actual
 
-Actualmente la información sobre las saliudas a terreno y la participación de los estudiantes se comunican principalmente gmail o Whastapp u otros medios informales. Los propfesores informan manualmente que ciertos estudiantes participan en esas actividades para que sus profesores jefes sepan que estan fuera de clases y puedan considerar su inasistencia como justificada.
+Actualmente la información sobre las saliudas a terreno y la participación de los estudiantes se comunican principalmente gmail o Whastapp u otros medios informales. Los propfesores informan manualmente que ciertos estudiantes participan en esas actividades para que sus profesores jefes sepan que estan fuera de clases y puedan considerar su inasistencia como justificada. Y por eso se creara un sistema o aplicación web para registrar, organizar y comunicar las salidas a terreno y los estudiantes que participan en ellas, permitiendo que los profesores y UTP puedan consultar esta información de manera centralizada.
 
 ## Problema
 
