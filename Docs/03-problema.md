@@ -13,11 +13,11 @@
 
 ## Proceso actual
 
-Actualmente la información sobre las saliudas a terreno y la participación de lso estudiantes comunican principalmente gmail o Whastapp u otros medios informales. Los propfesores informan manualmente que ciertos estudiantes participan en esas actividades para que sus profesores jefes sepan que estan fuera de clases y puedan considerar su inasistencia como justificada.
+Actualmente la información sobre las saliudas a terreno y la participación de los estudiantes se comunican principalmente gmail o Whastapp u otros medios informales. Los propfesores informan manualmente que ciertos estudiantes participan en esas actividades para que sus profesores jefes sepan que estan fuera de clases y puedan considerar su inasistencia como justificada.
 
 ## Problema
 
-La información de las salidas no se informan en un cierto lugar y de hecho eso es lo que genera confusión, perdida de información y las dificultades que los profes encuentran al pasar la asistencia y que los estudiantes esten participando en actividades fuera del aula o establecimiento.
+La información de las salidas no se informan en un cierta plataforma o medio de comunicación y de hecho eso es lo que genera confusión, perdida de información y las dificultades que los profes encuentran al pasar la asistencia y que los estudiantes esten participando en actividades fuera del aula o establecimiento.
 
 ## Evidencias
 
