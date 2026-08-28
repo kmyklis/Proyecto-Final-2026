@@ -13,11 +13,11 @@
 
 ## Proceso actual
 
-Actualmente la información sobre las saliudas a terreno y la participación de los estudiantes se comunican principalmente gmail o Whastapp u otros medios informales. Los propfesores informan manualmente que ciertos estudiantes participan en esas actividades para que sus profesores jefes sepan que estan fuera de clases y puedan considerar su inasistencia como justificada. Y por eso se creara un sistema o aplicación web para registrar, organizar y comunicar las salidas a terreno y los estudiantes que participan en ellas, permitiendo que los profesores y UTP puedan consultar esta información de manera centralizada.
+Actualmente la información sobre las salidas a terreno y la participación de los estudiantes se comunican principalmente por Gmail o Whastapp u otros medios informales. Los profesores informan manualmente que ciertos estudiantes participan en esas actividades para que sus profesores jefes sepan que estan fuera de clases y puedan considerar su inasistencia como justificada. Y por eso se creará un sistema o aplicación web para registrar, organizar y comunicar las salidas a terreno y los estudiantes que participan en ellas, permitiendo que los profesores y UTP puedan consultar esta información de manera centralizada.
 
 ## Problema
 
-La información de las salidas no se informan en un cierta plataforma o medio de comunicación y de hecho eso es lo que genera confusión, perdida de información y las dificultades que los profes encuentran al pasar la asistencia y que los estudiantes esten participando en actividades fuera del aula o establecimiento.
+La información de las salidas no se informan en un cierta plataforma o medio de comunicación y de hecho eso es lo que genera confusión, perdida de información y las dificultades que los profesores encuentran al pasar la asistencia y que los estudiantes esten participando en actividades fuera del aula o establecimiento.
 
 ## Evidencias
 
