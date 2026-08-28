@@ -5,7 +5,7 @@
 - Nombre: Sistema de gestión escolar para salidas a terreno
 - Área: Gestión y comunicación escolar 
 - Ubicación general: Liceo de Excelencia Antonio Varas de la Barra
-- Actividad principal: Oragnización y comunicación de de información relacionada con las salidas a terreno y actividades escolares
+- Actividad principal: Organización y comunicación de de información relacionada con las salidas a terreno y actividades escolares
 - Usuarios relacionados:
 - Los profesores quienes cordinan las actividades
 - Profesores jefes
