@@ -1,1 +1,608 @@
-wiwiw
+HTML
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEESAT - Liceo Antonio Varas de la Barra</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuente Google Fonts para mejor tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- BARRA SUPERIOR Y NAV -->
+    <header class="header-principal">
+        <div class="brand">
+            <button class="menu-btn" aria-label="Abrir menú" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <span class="brand-title">Liceo Antonio Varas de la Barra</span>
+        </div>
+        <div class="status-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenedor">
+
+        <!-- GALERÍA DE IMÁGENES -->
+        <section class="galeria-section">
+            <div class="galeria-header">
+                <h2>Conoce Nuestra Comunidad</h2>
+                <p>Descubre los rincones y experiencias de nuestra institución</p>
+            </div>
+            
+            <div class="galeria-grid">
+                <div class="imagen-card img-morro">
+                    <img src="morro.jpg" alt="Morro de Arica">
+                    <span class="tag">Morro de Arica</span>
+                </div>
+
+                <div class="imagen-card img-catedral">
+                    <img src="Catedral.jpg" alt="Catedral de Arica">
+                    <span class="tag">Catedral</span>
+                </div>
+
+                <div class="imagen-card img-playa">
+                    <img src="fotoplaya3.jpg" alt="Actividades en la playa">
+                    <span class="tag">Actividades</span>
+                </div>
+
+                <div class="imagen-card img-turismo">
+                    <img src="turismo.jpg" alt="Turismo institucional">
+                    <span class="tag">Turismo</span>
+                </div>
+
+                <div class="imagen-card img-cuevas">
+                    <img src="cuevas.jpg" alt="Cuevas de Anzota">
+                    <span class="tag">Cuevas de Anzota</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL DE INICIO DE SESIÓN -->
+        <section class="login-panel">
+            <div class="login-card">
+
+                <div class="logo-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSezawOQCqSNvNqu6jsNjfOjQ3VBEggzspuw6nH3O2siw&s=10"
+                        class="logo" alt="Logo del Liceo Antonio Varas de la Barra">
+                </div>
+
+                <div class="login-header">
+                    <h1>Bienvenido</h1>
+                    <p>Ingresa tus credenciales para acceder a la plataforma</p>
+                </div>
+
+                <!-- FORMULARIO CON FLUJO UX CORREGIDO -->
+                <form id="form-login" class="form-login">
+
+                    <div class="input-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input id="email" type="email" placeholder="alumno@liceoavb.cl" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Contraseña</label>
+                        <input id="password" type="password" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="opciones-recuperacion">
+                        <a href="#" class="link-secundario">¿Olvidaste tu contraseña?</a>
+                    </div>
+
+                    <!-- BOTÓN PRINCIPAL AL FINAL DE LOS INPUTS -->
+                    <button class="btn-primary" type="submit">
+                        Iniciar sesión
+                    </button>
+
+                    <div class="separador">
+                        <span>o continuar con</span>
+                    </div>
+
+                    <!-- REDES SOCIALES / OAUTH -->
+                    <div class="social-login">
+                        <button type="button" class="btn-social google" title="Continuar con Google">
+                            <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M21.35 12.27c0-.78-.07-1.53-.22-2.25H12v4.26h5.24a4.48 4.48 0 0 1-1.95 2.94v2.45h3.15c1.84-1.69 2.91-4.18 2.91-7.4z"/><path fill="#34A853" d="M12 21.5c2.63 0 4.84-.87 6.45-2.36l-3.15-2.45c-.87.58-1.98.92-3.3.92-2.54 0-4.69-1.72-5.46-4.03H3.28v2.53A9.74 9.74 0 0 0 12 21.5z"/><path fill="#FBBC05" d="M6.54 13.58A5.86 5.86 0 0 1 6.24 12c0-.55.1-1.08.3-1.58V7.89H3.28A9.75 9.75 0 0 0 2.25 12c0 1.57.38 3.06 1.03 4.11l3.26-2.53z"/><path fill="#EA4335" d="M12 6.39c1.43 0 2.72.49 3.73 1.45l2.8-2.8C16.84 3.43 14.63 2.5 12 2.5a9.74 9.74 0 0 0-8.72 5.39l3.26 2.53C7.31 8.11 9.46 6.39 12 6.39z"/></svg>
+                        </button>
+
+                        <button type="button" class="btn-social apple" title="Continuar con Apple">
+                            <svg viewBox="0 0 24 24"><path d="M16.72 12.78c.02 2.26 1.98 3.01 2 3.02-.02.05-.31 1.08-1.02 2.14-.62.92-1.27 1.84-2.29 1.86-1 .02-1.33-.6-2.48-.6-1.15 0-1.51.58-2.46.62-1 .04-1.77-.99-2.4-1.91-1.3-1.88-2.29-5.32-.96-7.64.66-1.15 1.83-1.88 3.1-1.9.97-.02 1.89.65 2.46.65.58 0 1.66-.8 2.8-.68.48.02 1.84.19 2.71 1.43-.07.04-1.62.95-1.61 3.01zM14.88 5.14c.52-.63.87-1.51.77-2.39-.75.03-1.65.5-2.19 1.13-.48.55-.9 1.44-.78 2.29.84.06 1.69-.42 2.2-1.03z" fill="#000000"/></svg>
+                        </button>
+
+                        <button type="button" class="btn-social microsoft" title="Continuar con Microsoft">
+                            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" fill="#F35325"/><rect x="13" y="3" width="8" height="8" fill="#81BC06"/><rect x="3" y="13" width="8" height="8" fill="#05A6F0"/><rect x="13" y="13" width="8" height="8" fill="#FFBA08"/></svg>
+                        </button>
+                    </div>
+
+                    <p class="registro-prompt">
+                        ¿No tienes una cuenta? <a href="#" class="link-destacado">Regístrate aquí</a>
+                    </p>
+
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.querySelector("#form-login").addEventListener("submit", e => {
+            e.preventDefault();
+
+            const correo = document.querySelector('#email').value;
+            const clave = document.querySelector('#password').value;
+
+            if (correo === "alumno@liceoavb.cl" && clave === "1234") {
+                window.location.href = "inicio.html";
+            } else {
+                alert("Datos incorrectos");
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+CSSS
+
+/* ==========================================================================
+   1. VARIABLES Y CONFIGURACIÓN GENERAL (Colores claros y luminosos)
+   ========================================================================== */
+:root {
+    /* Paleta de colores clara y moderna */
+    --bg-light: #f8fafc;            /* Fondo general suave */
+    --bg-card: #ffffff;             /* Fondo de tarjetas e inputs */
+    --primary-blue: #1e40af;        /* Azul institucional profesional (más brillante) */
+    --primary-blue-hover: #1d4ed8;
+    --accent-gold: #f59e0b;         /* Dorado/Amarillo vibrante para acentos */
+    --accent-gold-hover: #d97706;
+    
+    /* Textos */
+    --text-main: #0f172a;           /* Texto principal oscuro para alto contraste */
+    --text-muted: #64748b;          /* Texto secundario / leyendas */
+    
+    /* Bordes y Sombras */
+    --border-color: #e2e8f0;
+    --border-focus: #3b82f6;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+    
+    /* Radios de borde */
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --radius-sm: 6px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   2. BARRA SUPERIOR (HEADER Y NAV)
+   ========================================================================== */
+.header-principal {
+    background-color: #ffffff;
+    color: var(--text-main);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 28px;
+    border-bottom: 3px solid var(--accent-gold);
+    box-shadow: var(--shadow-sm);
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--primary-blue);
+    letter-spacing: -0.2px;
+}
+
+.menu-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px;
+}
+
+.menu-btn span {
+    width: 22px;
+    height: 2.5px;
+    background-color: var(--primary-blue);
+    border-radius: 2px;
+}
+
+.status-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.status-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+}
+
+/* ==========================================================================
+   3. ESTRUCTURA PRINCIPAL (GRID)
+   ========================================================================== */
+.contenedor {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    min-height: calc(100vh - 58px);
+}
+
+/* ==========================================================================
+   4. COLLAGE DE IMÁGENES (LADO IZQUIERDO)
+   ========================================================================== */
+.galeria-section {
+    padding: 36px;
+    background-color: #f1f5f9;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+}
+
+.galeria-header h2 {
+    font-size: 1.6rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.galeria-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 2px;
+}
+
+/* Grid estilo Collage Orgánico */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 140px;
+    gap: 14px;
+}
+
+.imagen-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s ease;
+    cursor: pointer;
+}
+
+.imagen-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    z-index: 2;
+}
+
+.imagen-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.imagen-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Etiqueta flotante sobre cada imagen del collage */
+.imagen-card .tag {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.88);
+    color: var(--text-main);
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Distribución asimétrica tipo Mosaico / Collage */
+.img-morro {
+    grid-column: span 2;
+    grid-row: span 2; /* Imagen principal más grande */
+}
+
+.img-catedral {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.img-playa {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.img-turismo {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.img-cuevas {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* ==========================================================================
+   5. PANEL DE INICIO DE SESIÓN CLARO (LADO DERECHO)
+   ========================================================================== */
+.login-panel {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-left: 1px solid var(--border-color);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 380px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.logo {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-gold);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.login-header h1 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+}
+
+.login-header p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Formulario e Inputs Claros */
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.form-login input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-login input:focus {
+    border-color: var(--border-focus);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.opciones-recuperacion {
+    text-align: right;
+    margin-top: -4px;
+}
+
+.link-secundario {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.link-secundario:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+/* Botón Principal Destacado */
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-blue-hover);
+    box-shadow: 0 6px 16px rgba(30, 64, 175, 0.35);
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+/* Separador */
+.separador {
+    text-align: center;
+    position: relative;
+    margin: 8px 0;
+}
+
+.separador span {
+    background-color: #ffffff;
+    padding: 0 12px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+.separador::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+/* Botones de Redes Sociales */
+.social-login {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-social {
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-color);
+    width: 54px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-social:hover {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-social svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Registro Promot */
+.registro-prompt {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+.link-destacado {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.link-destacado:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   6. DISEÑO RESPONSIVO (PANTALLAS PEQUEÑAS)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+    
+    .galeria-section {
+        order: 2;
+        padding: 24px 16px;
+    }
+
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 120px;
+    }
+
+    .img-morro {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .img-catedral {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    
+    .login-panel {
+        order: 1;
+        padding: 32px 20px;
+        border-left: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
