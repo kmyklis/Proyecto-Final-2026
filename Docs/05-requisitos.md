@@ -4,13 +4,13 @@
 
 | Código | Requisito | Prioridad | Criterio de aceptación | Responsable |
 |---|---|---|---|---|
-| RF-01 |Permite que el usuario se reguistre| Alta |El nuevo usuario completa un formulario y queda registrado en la base de datos |Isabel|
-| RF-02 |Permite mostrar los cursos| Alta |Se  muestra la lista actualizada de cursos disponibles en la interfaz |Isabel|
+| RF-01 |Permite que el usuario se registre autenticando al usuario por rol| Alta |El nuevo usuario completa un formulario y queda registrado en la base de datos |Isabel|
+| RF-02 |cursos| Alta |Mostrar lista de cursos para asociar un aviso/estudiante.|Isabel|
 | RF-03 |Permite hacer una solicitud de salida| Alta |Se guarda la solicitud  asociando fecha, curso, motivo y estado inicial |Isabel|
-| RF-04 |Permite cancelar una salida| Media |Cambia el estado de la solicitud a "Canecelar" y libera los cupos o horarios |Isabel|
-| RF-05 |Permite ver que dias hay salidas| Alta|Muestra un calendario o lista con las fechas maracados que tienen salidas programadas |Isabel|
-| RF-06 |Permite consultar solicitudes| Media|Muestra el listado de solicitudes con su estado fecha, y datos del curso |Isabel|
-| RF-07 |Permite editar solicitudes| Alta|Permite modificar la fecha, curso o descripcion de una solicitud pendiente |Isabel|
+| RF-04 |Permite cancelar| Media |Desactivar o archivar un aviso emitidoo horarios |Isabel|
+| RF-05 |Calendario o muro de avisos| Alta|Muro de avisos y eventos del liceo ordenados por fecha y prioridad.|Isabel|
+| RF-06 |Permite consultar avisos| Media|Filtro por curso, profesor emisor o tipo de aviso|Isabel|
+| RF-07 |editar comunicados| Alta|Modificar avisos pendientes o correcciones de información.|Isabel|
 
 
 ## Requisitos no funcionales
