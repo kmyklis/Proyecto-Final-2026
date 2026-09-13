@@ -1,24 +1,22 @@
 # Proyecto-Final-2026
 Ultimo proyecto de año 2026 programación
 
-## Desafio 
-Desarrollar una solución informática para un problema real de una organización y presentarla ante una audiencia.
+# GEESAT - Sistema Web de Comunicación y Avisos Docentes
 
-## Resultado
-Una aplicación ejecutable localmente, con base de datos, documentación y demostración funcional.
+**GEESAT** (Gestión Escolar de Eventos, Solicitudes y Avisos Institucionales) es una solución web desarrollada para el **Liceo Antonio Varas de la Barra** para centralizar la comunicación, notificaciones e incidencias entre docentes, profesores jefes, inspectores y UTP.
 
-## Fases
+## Desafío
+Resolver la desorganización, pérdida de datos y retrasos en la comunicación docente provocados por el uso excesivo de correos electrónicos y chats de WhatsApp.
 
--Aplicación.
--Base de datos.
--Código fuente.
--Documentación.
--Repositorio.
--Presentación.
--Defensa.
+## Funcionalidades Principales
+- **Muro de Avisos e Inasistencias:** Publicación de coordinaciones pedagógicas y avisos en aula.
+- **Gestión de Solicitudes:** Registro y aprobación de salidas pedagógicas/terreno.
+- **Filtro por Cursos y Roles:** Consultas rápidas para UTP e Inspectoría sobre qué alumnos están justificados en tiempo real.
+- **Gestión de Usuarios:** Control de acceso según rol (Docente, Inspector, UTP).
 
-## valuaciones
-
--Presentación de propuesta.
--Seguimientos del proceso.
--Presentación y defensa final
+## Integrantes del Equipo (El Proyecto 404)
+- **Liseth Capia** - Líder del equipo
+- **Alejandra Mamani** - Analista de Requerimientos
+- **Francisca Calle** - Diseñadora UX/UI
+- **Isabel Fernández** - Desarrolladora Frontend
+- **Beymar Quispe** - Desarrollador Backend y Base de Datos
