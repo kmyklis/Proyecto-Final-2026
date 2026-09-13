@@ -5,21 +5,21 @@ Desarrollar una aplicación web que centralize la gestión de comunicaciones,avi
 
 ## Objetivos específicos
 
-1. Agrupar en una aplicación web la información relacionada con las salidas a terreno de los estudiantes
-2. Permitir el registro y consulta de las salidas a terreno incluyendo información importante como fecha, lugar, motivo y estudiantes participantes
-3. Facilitar a los profesores al acceso de información de las salidas y los horarios de los estudiantes involucrados
-4. Reducir la desorganización y confusión producida por la incomunicación de las salidas madiante distintos medios como correos electronicos y WhasApp
+1. Agrupar en una plataforma web los avisos, comunicaciones e incidencias docentes del establecimiento.
+2. Permitir el registro y consulta de avisos y coordinaciones, incluyendo información clave como fecha, curso, motivo, tipo de aviso y personas involucradas.
+3. Facilitar a los profesores e inspectores el acceso centralizado a los avisos e inasistencias en tiempo real.
+4. Reducir la desorganización producida por la dispersión de mensajes en correos electrónicos y WhatsApp.
 
 ## Beneficiarios
 -Profesores Jefes:Podrán consultar sobre la información sobre elas salidas de sus estudiantes
--Profesores responsables de las salidas:Podran registrar y comunicar la información de las actividades
--UTP:Podra acceder a la información organizada sobre las salidas
+-Profesores de asignatura: Podrán registrar y comunicar avisos, novedades y actividades pedagógicas.
+-UTP e Inspectores: Podrán consultar y gestionar la información institucional organizada centralmente.
 
 ## Alcance: incluye
 
-- Registro de información de las salidas a terreno
-- Consulta de los estudiantes que están en la presente salida 
-- 
+- Registro e inicio de sesión por roles (Docentes, Inspectores, UTP).
+-Publicación, edición y consulta de avisos, incidencias y actividades escolares.
+-Consulta y filtro de comunicaciones por curso y fecha.
 
 ## Alcance: no incluye
 
@@ -28,7 +28,7 @@ Desarrollar una aplicación web que centralize la gestión de comunicaciones,avi
 - notificaciones por correo
 
 ## Resultado esperado al 27/10/2026
-Contar con una aplicación web que permita registrar, organizar,justificar y consultar información relacionada con las salidas a terreno y los estudiantes participantes para no tener problemas dentro del establecimiento por una desinformación, centralizando la información para facilitar la comunicación entre los profesores y UTP
+Contar con una aplicación web que permita registrar, organizar y consultar comunicaciones, avisos e incidencias docentes para evitar desinformación dentro del establecimiento, centralizando los datos para facilitar la coordinación entre profesores, inspectores y UTP.
 
 
 ## Indicadores de logro
