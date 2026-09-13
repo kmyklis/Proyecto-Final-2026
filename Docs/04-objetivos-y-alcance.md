@@ -1,7 +1,7 @@
 # Objetivos y alcance
 
 ## Objetivo general
-Desarrollar una aplicación web el cual gestione y comunique la información con las salidas a terreno y asi facilitar el acceso de los profesores a la información necesaria solucionando la confusión generada por demasiados correos y mensajes para comunicar estas actividades.
+Desarrollar una aplicación web que centralize la gestión de comunicaciones,avisos (incluyendo salidas a terreno, avisos de UTP y justificaciones de inasistencia), asi mejorar la coordinación entre docentes, profesores, inspectores y utp del licep.
 
 ## Objetivos específicos
 
