@@ -2,22 +2,22 @@
 
 ## Organización
 
-- Nombre: Sistema de gestión escolar para salidas a terreno
+- Nombre:Sistema Web de Comunicación Docente
 - Área: Gestión y comunicación escolar 
 - Ubicación general: Liceo de Excelencia Antonio Varas de la Barra
-- Actividad principal: Organización y comunicación de de información relacionada con las salidas a terreno y actividades escolares
+- Actividad principal: Organización y comunicación de comunicación interna, avisos institucionales e incidencias entre docentes, inspectores,  UTP y actividades escolares
 - Usuarios relacionados:
-- Los profesores quienes cordinan las actividades
+- Inspectores
 - Profesores jefes
-- Los estudiantes que participan en las salidas a terreno
+- -UTP
 
 ## Proceso actual
 
-Actualmente la información sobre las salidas a terreno y la participación de los estudiantes se comunican principalmente por Gmail o Whastapp u otros medios informales. Los profesores informan manualmente que ciertos estudiantes participan en esas actividades para que sus profesores jefes sepan que estan fuera de clases y puedan considerar su inasistencia como justificada. Y por eso se creará un sistema o aplicación web para registrar, organizar y comunicar las salidas a terreno y los estudiantes que participan en ellas, permitiendo que los profesores y UTP puedan consultar esta información de manera centralizada.
+Actualmente la información sobre las comunicaciones docentes, avisos de aula e inasistencias se comunica principalmente por Gmail, WhatsApp u otros medios informales. Los profesores informan manualmente las novedades para que los profesores jefes e inspectores sepan qué estudiantes están fuera de clase y consideren su inasistencia como justificada. Por ello, se creará una aplicación web para registrar, organizar y centralizar las comunicaciones, avisos e incidencias docentes, permitiendo que profesores, inspectores y UTP consulten esta información de manera rápida y ordenada.
 
 ## Problema
 
-La información de las salidas no se informan en un cierta plataforma o medio de comunicación y de hecho eso es lo que genera confusión, perdida de información y las dificultades que los profesores encuentran al pasar la asistencia y que los estudiantes esten participando en actividades fuera del aula o establecimiento.
+Las comunicaciones y avisos institucionales no se informan en una plataforma fija, lo que genera confusión, pérdida de información y dificultades para consultar novedades de aula o verificar la asistencia
 
 ## Evidencias
 
@@ -50,7 +50,7 @@ La información de las salidas no se informan en un cierta plataforma o medio de
 
 ## Pregunta del proyecto
 
-> ¿Cómo podríamos mejorar la comunicación y la información sobre las salidas a terreno considerando la participación de los estudiantes mediantes una plataforma web fija?
+> ¿Cómo podríamos mejorar la comunicación interna y la gestión de avisos institucionales entre docentes, inspectores y UTP mediante una plataforma web fija y centralizada?
 
 ## Validación
 
