@@ -12,15 +12,15 @@
 ## Preguntas
 
 1. ¿Qué proceso desea mejorar?
-   Se desea mejorar la comunicación y el proceso de solicitud de salidas a terreno
+   Se desea mejorar la comunicación interna general entre docentes, UTP e inspectores (incluyendo avisos, justificativos y salidas).
 2. ¿Cómo se realiza actualmente?
     se comunican mediante Correo electronico y mediante whatsapp
 3. ¿Quiénes participan?
-   Los docentes y los asistentes de UTP, y los estudiantes participantes a las salidas a terreno
+   Los docentes, inspectores y docentes de utp.
 4. ¿Qué información se registra?
    Se registra el nombre del estudiante, rut, curso,lugar, motivo, y apareceran planificación y el objetivo de la salida
 5. ¿Qué errores o retrasos ocurren?
-    Lo mas concurrente es que las colicitudes o información se mezcla o se pierde entre muchos correos y demorar en ser encontradas.
+    Lo mas concurrente es que las solicitudes o información se mezcla o se pierde entre muchos correos y demorar en ser encontradas.
 6. ¿Con qué frecuencia sucede?
     Sucede frecuentemente lo cual suele "perjudicar" a los docentes de utp al no recibir o ver información importante al ser mezclada con otros
 7. ¿Qué consecuencia produce?
