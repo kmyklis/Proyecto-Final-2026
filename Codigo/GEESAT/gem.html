@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEESAT - Gestión Escolar de Salidas a Terreno</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --sidebar-bg: #0f172a;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --text-title: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-title);
+            overflow-x: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 270px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: var(--sidebar-bg);
+            padding: 1.5rem 1rem;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar .brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+        }
+
+        /* Tarjeta de Perfil en Sidebar */
+        .user-profile-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar .nav-link {
+            color: #94a3b8;
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.25rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .sidebar .nav-link:hover, .sidebar .nav-link.active {
+            color: #ffffff;
+            background-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        }
+
+        /* Área Principal */
+        .main-content {
+            margin-left: 270px;
+            padding: 2rem;
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            border-radius: 16px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 1rem;
+            z-index: 900;
+        }
+
+        /* Secciones para el Scroll */
+        .section-block {
+            padding-top: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .kpi-icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: justify;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .custom-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+        }
+
+        .table-custom th {
+            background-color: #f8fafc;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .table-custom td {
+            padding: 1rem 1.5rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .badge-status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+        .badge-approved { background: #dcfce7; color: #15803d; }
+        .badge-pending  { background: #fef3c7; color: #b45309; }
+
+        .fab-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            padding: 14px 24px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease;
+            z-index: 999;
+        }
+        .fab-button:hover { background-color: var(--accent-hover); transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ LATERAL -->
+    <aside class="sidebar">
+        <div>
+            <div class="brand">
+                <i class="fa-solid fa-graduation-cap" style="color: #818cf8; font-size: 1.5rem;"></i>
+                <span>GEESAT Liceo</span>
+            </div>
+
+            <!-- DATO DE PERFIL DEL PROFESOR LOGUEADO -->
+            <div class="user-profile-card d-flex align-items-center gap-3">
+                <div class="bg-indigo text-white rounded-circle d-flex align-items-center justify-content-center fw-bold" style="width: 42px; height: 42px; background-color: var(--accent-color); flex-shrink: 0;">
+                    MP
+                </div>
+                <div class="overflow-hidden">
+                    <h6 class="text-white mb-0 text-truncate font-weight-bold" style="font-size: 0.9rem;">Prof. María Pérez</h6>
+                    <span class="badge bg-info text-dark" style="font-size: 0.65rem;">Dpto. Ciencias</span>
+                    <small class="text-slate-400 d-block text-truncate text-secondary" style="font-size: 0.75rem;">Especialidad: Biología</small>
+                </div>
+            </div>
+
+            <!-- ENLACES CON SCROLL INTERNO -->
+            <nav class="nav flex-column">
+                <a class="nav-link active" href="#sec-dashboard"><i class="fa-solid fa-chart-pie me-2"></i> Dashboard</a>
+                <a class="nav-link" href="#sec-solicitudes"><i class="fa-solid fa-paper-plane me-2"></i> Mis Solicitudes</a>
+                <a class="nav-link" href="#sec-calendario"><i class="fa-solid fa-calendar-days me-2"></i> Calendario</a>
+                <a class="nav-link" href="#sec-justificaciones"><i class="fa-solid fa-user-check me-2"></i> Justificar Alumnos</a>
+            </nav>
+        </div>
+
+        <div>
+            <hr class="text-secondary opacity-25 my-3">
+            <a class="nav-link text-danger" href="LogoutServlet"><i class="fa-solid fa-arrow-right-from-bracket me-2"></i> Cerrar Sesión</a>
+        </div>
+    </aside>
+
+    <!-- CONTENIDO PRINCIPAL EN UNA SOLA PÁGINA (DESPLAZAMIENTO POR SCROLL) -->
+    <main class="main-content">
+        
+        <!-- HEADER ENCABEZADO -->
+        <header class="glass-header d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="fw-bold mb-0">Panel de Control Docente</h5>
+                <small class="text-muted">Liceo Técnico Profesional • Área Ciencias e Historia</small>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <div class="text-end border-end pe-3">
+                    <span class="fw-bold d-block style="font-size: 0.9rem;">María Pérez Soto</span>
+                    <small class="badge bg-primary bg-opacity-10 text-primary">Docente Técnico/Científico</small>
+                </div>
+                <button class="btn btn-light rounded-circle position-relative p-2" type="button">
+                    <i class="fa-regular fa-bell text-secondary"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- SECCIÓN 1: DASHBOARD Y METRICAS -->
+        <section id="sec-dashboard" class="section-block">
+            <h5 class="fw-bold mb-3"><i class="fa-solid fa-gauge text-indigo me-2" style="color:var(--accent-color);"></i> Resumen de Actividad</h5>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="kpi-card d-flex align-items-center gap-3">
+                        <div class="kpi-icon-wrapper bg-warning bg-opacity-10 text-warning">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                        </div>
+                        <div>
+                            <span class="text-muted small fw-semibold">Solicitudes Pendientes</span>
+                            <h3 class="fw-bold mb-0">1</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="kpi-card d-flex align-items-center gap-3">
+                        <div class="kpi-icon-wrapper bg-success bg-opacity-10 text-success">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div>
+                            <span class="text-muted small fw-semibold">Salidas Aprobadas UTP</span>
+                            <h3 class="fw-bold mb-0">3</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="kpi-card d-flex align-items-center gap-3">
+                        <div class="kpi-icon-wrapper bg-primary bg-opacity-10 text-primary">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <div>
+                            <span class="text-muted small fw-semibold">Alumnos Salientes</span>
+                            <h3 class="fw-bold mb-0">74</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: TABLA DE SOLICITUDES -->
+        <section id="sec-solicitudes" class="section-block">
+            <div class="custom-card">
+                <div class="p-3 px-4 border-bottom d-flex justify-content-between align-items-center">
+                    <h6 class="fw-bold mb-0"><i class="fa-solid fa-list-check text-indigo me-2" style="color:var(--accent-color);"></i>Mis Salidas a Terreno Registradas</h6>
+                    <span class="badge bg-light text-dark border">Especialidad: Ciencias / Biología</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-custom mb-0">
+                        <thead>
+                            <tr>
+                                <th>Destino / Actividad</th>
+                                <th>Asignatura / Depto</th>
+                                <th>Curso(s)</th>
+                                <th>Fecha</th>
+                                <th>Estado UTP</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="fw-semibold">Laboratorio Científico Universidad</div>
+                                    <small class="text-muted">Salida Pedagogica de Muestreo</small>
+                                </td>
+                                <td><span class="badge bg-info bg-opacity-10 text-info border border-info-subtle">Biología Celular</span></td>
+                                <td><span class="badge bg-secondary bg-opacity-10 text-secondary">3° Medio C</span></td>
+                                <td>14 Oct, 2026</td>
+                                <td><span class="badge-status badge-pending">En Evaluación UTP</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-light border" title="Ver Detalle"><i class="fa-solid fa-eye"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="fw-semibold">Reserva Ecológica Cerro Isla</div>
+                                    <small class="text-muted">Terreno Experimental</small>
+                                </td>
+                                <td><span class="badge bg-info bg-opacity-10 text-info border border-info-subtle">Ciencias Naturales</span></td>
+                                <td><span class="badge bg-secondary bg-opacity-10 text-secondary">4° Medio A</span></td>
+                                <td>02 Nov, 2026</td>
+                                <td><span class="badge-status badge-approved">Aprobada</span></td>
+                                <td>
+                                    <a href="#sec-justificaciones" class="btn btn-sm btn-primary" style="background-color: var(--accent-color); border:none;"><i class="fa-solid fa-user-check me-1"></i> Justificar</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: CALENDARIO INTERACTIVO -->
+        <section id="sec-calendario" class="section-block">
+            <div class="custom-card p-4">
+                <h6 class="fw-bold mb-3"><i class="fa-solid fa-calendar-days text-indigo me-2" style="color:var(--accent-color);"></i>Calendario General de Terrenos del Liceo</h6>
+                <div id="calendar"></div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: JUSTIFICACIÓN DE ESTUDIANTES -->
+        <section id="sec-justificaciones" class="section-block">
+            <div class="custom-card p-4">
+                <h6 class="fw-bold mb-3"><i class="fa-solid fa-user-check text-indigo me-2" style="color:var(--accent-color);"></i>Justificación Automática de Inasistencias</h6>
+                <p class="text-muted small">Seleccione los alumnos que asistirán a la salida para generar el certificado de justificación para inspección y UTP.</p>
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-md-6">
+                        <select class="form-select">
+                            <option>Seleccionar Salida Aprobada...</option>
+                            <option selected>02 Nov - Reserva Ecológica Cerro Isla (4° Medio A)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success"><i class="fa-solid fa-file-check me-2"></i> Confirmar y Justificar Asistencia</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTOÓN FLOTANTE PARA NUEVA SALIDA -->
+    <button class="fab-button" data-bs-toggle="modal" data-bs-target="#modalNuevaSalida">
+        <i class="fa-solid fa-plus fs-5"></i>
+        <span>Nueva Salida</span>
+    </button>
+
+    <!-- MODAL REGISTRO DE SALIDA -->
+    <div class="modal fade" id="modalNuevaSalida" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow-lg">
+                <div class="modal-header border-0 pb-0 pt-4 px-4">
+                    <h5 class="modal-title fw-bold"><i class="fa-solid fa-route me-2" style="color:var(--accent-color);"></i>Programar Salida a Terreno</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <form action="SalidaServlet" method="POST">
+                    <div class="modal-body p-4">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Docente Responsable</label>
+                                <input type="text" class="form-control bg-light" value="Prof. María Pérez" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold">Especialidad / Departamento</label>
+                                <input type="text" class="form-control bg-light" value="Ciencias / Biología" readonly>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="form-label small fw-bold">Lugar o Destino</label>
+                                <input type="text" name="txtLugar" class="form-control rounded-3" placeholder="Ej: Museo, Parque Nacional, Empresa" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small fw-bold">Fecha</label>
+                                <input type="date" name="txtFecha" class="form-control rounded-3" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label small fw-bold">Objetivo Pedagógico para UTP</label>
+                                <textarea name="txtObjetivo" class="form-control rounded-3" rows="3" placeholder="Detalle los aprendizajes esperados de la salida..." required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 pt-0 px-4 pb-4">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary px-4" style="background-color:var(--accent-color); border:none;">Enviar a UTP</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    
+    <script>
+        // Inicializar Calendario Automáticamente al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es',
+                themeSystem: 'bootstrap5',
+                events: [
+                    { title: 'Biología: Cerro Isla', start: '2026-11-02T08:30:00', color: '#10b981' },
+                    { title: 'Historia: Museo Regional', start: '2026-11-10T10:00:00', color: '#6366f1' }
+                ]
+            });
+            calendar.render();
+        });
+
+        // Cambio de clase activa en la Sidebar según el desplazamiento del scroll
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".sidebar .nav-link");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === `#${current}`) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

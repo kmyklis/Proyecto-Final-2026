@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEESAT - Panel Docente</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f4f6f9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .sidebar { min-height: 100vh; background-color: #1e293b; color: white; }
+        .sidebar a { color: #cbd5e1; text-decoration: none; padding: 12px 20px; display: block; border-radius: 8px; margin-bottom: 5px; }
+        .sidebar a:hover, .sidebar a.active { background-color: #0ea5e9; color: white; }
+        .card-stat { border: none; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .badge-aprobado { background-color: #10b981; }
+        .badge-pendiente { background-color: #f59e0b; }
+        .badge-rechazado { background-color: #ef4444; }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- BARRA LATERAL / NAVEGACIÓN -->
+        <div class="col-md-3 col-lg-2 sidebar p-3 d-none d-md-block">
+            <h4 class="text-center fw-bold py-3 text-info"><i class="fa-solid fa-bus-simple me-2"></i>GEESAT</h4>
+            <hr class="text-secondary">
+            <a href="#" class="active"><i class="fa-solid fa-chart-line me-2"></i>Inicio</a>
+            <a href="calendario.jsp"><i class="fa-solid fa-calendar-days me-2"></i>Calendario</a>
+            <a href="#modalNuevaSalida" data-bs-toggle="modal"><i class="fa-solid fa-plus-circle me-2"></i>Nueva Salida</a>
+            <a href="#"><i class="fa-solid fa-user-check me-2"></i>Justificaciones</a>
+            <hr class="text-secondary">
+            <a href="LogoutServlet" class="text-danger"><i class="fa-solid fa-right-from-bracket me-2"></i>Cerrar Sesión</a>
+        </div>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+            
+            <!-- HEADER DE BIENVENIDA -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="fw-bold text-dark">Bienvenido, Prof. Juan Pérez</h2>
+                    <p class="text-muted">Gestione sus salidas pedagógicas y consulte sus estados en tiempo real.</p>
+                </div>
+                <button class="btn btn-primary btn-lg shadow-sm" data-bs-toggle="modal" data-bs-target="#modalNuevaSalida">
+                    <i class="fa-solid fa-plus me-2"></i>Programar Salida
+                </button>
+            </div>
+
+            <!-- TARJETAS RESUMEN (KPIs) -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="card card-stat p-3 bg-white border-start border-4 border-warning">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted small fw-bold">SOLICITUDES PENDIENTES</span>
+                                <h3 class="fw-bold mb-0 text-warning">2</h3>
+                            </div>
+                            <i class="fa-solid fa-clock fa-2x text-warning opacity-50"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-stat p-3 bg-white border-start border-4 border-success">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted small fw-bold">SALIDAS APROBADAS</span>
+                                <h3 class="fw-bold mb-0 text-success">5</h3>
+                            </div>
+                            <i class="fa-solid fa-circle-check fa-2x text-success opacity-50"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-stat p-3 bg-white border-start border-4 border-primary">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="text-muted small fw-bold">ALUMNOS JUSTIFICADOS</span>
+                                <h3 class="fw-bold mb-0 text-primary">142</h3>
+                            </div>
+                            <i class="fa-solid fa-graduation-cap fa-2x text-primary opacity-50"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA DE MIS SALIDAS PROGRAMADAS -->
+            <div class="card border-0 shadow-sm rounded-3">
+                <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0"><i class="fa-solid fa-list-check me-2 text-primary"></i>Mis Salidas a Terreno</h5>
+                    <input type="text" class="form-control form-control-sm w-25" placeholder="Buscar salida...">
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Lugar / Objetivo</th>
+                                    <th>Curso(s)</th>
+                                    <th>Fecha y Hora</th>
+                                    <th>Estado UTP</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="fw-bold d-block">Museo Histórico Nacional</span>
+                                        <small class="text-muted">Asignatura: Historia y Geografía</small>
+                                    </td>
+                                    <td><span class="badge bg-secondary">3° Medio A</span> <span class="badge bg-secondary">3° Medio B</span></td>
+                                    <td>28/10/2026 - 09:00 hrs</td>
+                                    <td><span class="badge badge-pendiente px-3 py-2 rounded-pill">Pendiente UTP</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" title="Ver detalle"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-outline-warning" title="Editar"><i class="fa-solid fa-pen"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="fw-bold d-block">Reserva Ecológica Cerro Isla</span>
+                                        <small class="text-muted">Asignatura: Biología</small>
+                                    </td>
+                                    <td><span class="badge bg-secondary">4° Medio C</span></td>
+                                    <td>15/11/2026 - 08:30 hrs</td>
+                                    <td><span class="badge badge-aprobado px-3 py-2 rounded-pill">Aprobada</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-info" title="Ver detalle"><i class="fa-solid fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-success" title="Lista y Justificaciones"><i class="fa-solid fa-users-check"></i> Justificar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- MODAL: PROGRAMAR NUEVA SALIDA (Formulario por pasos/secciones) -->
+<div class="modal fade" id="modalNuevaSalida" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title fw-bold"><i class="fa-solid fa-bus me-2"></i>Programar Nueva Salida Pedagógica</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <form action="SalidaServlet" method="POST">
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <label class="form-label fw-bold">Lugar de Destino / Entidad</label>
+                            <input type="text" name="lugar" class="form-control" placeholder="Ej: Observatorio Astronómico" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label fw-bold">Asignatura</label>
+                            <input type="text" name="asignatura" class="form-control" placeholder="Ej: Física" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Fecha de la Salida</label>
+                            <input type="date" name="fecha" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-bold">Hora Salida</label>
+                            <input type="time" name="horaInicio" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-bold">Hora Retorno</label>
+                            <input type="time" name="horaFin" class="form-control" required>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label fw-bold">Curso(s) Involucrados</label>
+                            <select name="cursos" class="form-select" multiple required>
+                                <option value="1A">1° Medio A</option>
+                                <option value="2B">2° Medio B</option>
+                                <option value="3A">3° Medio A</option>
+                                <option value="4C">4° Medio C</option>
+                            </select>
+                            <small class="text-muted">Mantenga presionado Ctrl para seleccionar varios cursos.</small>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label fw-bold">Objetivo Pedagógico / Justificación para UTP</label>
+                            <textarea name="objetivo" class="form-control" rows="3" placeholder="Explique brevemente las competencias o aprendizajes a trabajar..." required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane me-1"></i> Enviar a UTP</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
