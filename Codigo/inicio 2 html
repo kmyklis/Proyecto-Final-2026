@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GEESAT</title>
+
+    <link rel="stylesheet" href="inicio.css">
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     BARRA SUPERIOR
+========================================== -->
+
+<header class="barra">
+
+    <div class="nombre">
+        GEESAT
+    </div>
+
+
+    <div class="buscador">
+
+        <input
+            type="text"
+            placeholder="Buscar"
+        >
+
+    </div>
+
+
+    <button
+        class="perfil"
+        type="button"
+    >
+
+        <span class="cabeza"></span>
+
+        <span class="cuerpo"></span>
+
+    </button>
+
+</header>
+
+
+
+<!-- ==========================================
+     SIDEBAR FIJA
+========================================== -->
+
+<aside class="sidebar">
+
+
+    <div class="logo-contenedor">
+
+        <img
+            src="logo.png"
+            alt="Logo del liceo"
+        >
+
+        <h2>
+            GEESAT
+        </h2>
+
+        <p>
+            Salidas a terreno
+        </p>
+
+    </div>
+
+
+
+    <nav class="menu-lateral">
+
+
+        <a
+            href="#inicio"
+            class="opcion activo"
+        >
+
+            <span class="icono">
+                ⌂
+            </span>
+
+            <span>
+                Inicio
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#cursos"
+            class="opcion"
+        >
+
+            <span class="icono">
+                ▣
+            </span>
+
+            <span>
+                Cursos
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#calendario"
+            class="opcion"
+        >
+
+            <span class="icono">
+                ▦
+            </span>
+
+            <span>
+                Calendario
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#planificacion"
+            class="opcion"
+        >
+
+            <span class="icono">
+                ☷
+            </span>
+
+            <span>
+                Planificación
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#avisos"
+            class="opcion"
+        >
+
+            <span class="icono">
+                ⚑
+            </span>
+
+            <span>
+                Avisos
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#configuracion"
+            class="opcion"
+        >
+
+            <span class="icono">
+                ⚙
+            </span>
+
+            <span>
+                Configuración
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <div class="separador"></div>
+
+
+
+    <a
+        href="index.html"
+        class="opcion cerrar"
+    >
+
+        <span class="icono">
+            ⇥
+        </span>
+
+        <span>
+            Cerrar sesión
+        </span>
+
+    </a>
+
+
+</aside>
+
+
+
+<!-- ==========================================
+     CONTENIDO
+========================================== -->
+
+<main class="contenido">
+
+
+
+<!-- ==========================================
+     INICIO
+========================================== -->
+
+<section
+    id="inicio"
+    class="seccion inicio"
+>
+
+
+    <div class="texto-inicio">
+
+
+        <p class="mini-titulo">
+            LICEO ANTONIO VARAS DE LA BARRA
+        </p>
+
+
+        <h1>
+
+            Bienvenido a
+
+            <strong>
+                GEESAT
+            </strong>
+
+        </h1>
+
+
+        <p class="descripcion">
+
+            Organiza tus cursos,
+            actividades y próximas
+            salidas a terreno.
+
+        </p>
+
+
+        <a
+            href="#cursos"
+            class="boton-principal"
+        >
+
+            Explorar
+
+        </a>
+
+
+    </div>
+
+
+
+    <div class="tarjetas-inicio">
+
+
+        <div class="tarjeta-foto foto-1">
+
+            <div>
+
+                <h3>
+                    Salidas a terreno
+                </h3>
+
+                <p>
+                    Aprende fuera del aula
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="tarjeta-foto foto-2">
+
+            <div>
+
+                <h3>
+                    Explora Arica
+                </h3>
+
+                <p>
+                    Conoce nuestro entorno
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     CURSOS
+========================================== -->
+
+<section
+    id="cursos"
+    class="seccion cursos"
+>
+
+
+    <div class="contenido-seccion">
+
+
+        <p class="mini-titulo">
+            ORGANIZACIÓN
+        </p>
+
+
+        <h2>
+            Mis cursos
+        </h2>
+
+
+        <p class="texto-seccion">
+
+            Revisa los cursos relacionados
+            con tus próximas actividades
+            y salidas a terreno.
+
+        </p>
+
+
+
+        <div class="tarjetas">
+
+
+            <article class="tarjeta">
+
+                <span class="tarjeta-icono">
+                    ♙
+                </span>
+
+                <h3>
+                    1° Medio
+                </h3>
+
+                <p>
+                    Actividades educativas
+                    y visitas en terreno.
+                </p>
+
+            </article>
+
+
+
+            <article class="tarjeta">
+
+                <span class="tarjeta-icono">
+                    🗺
+                </span>
+
+                <h3>
+                    2° Medio
+                </h3>
+
+                <p>
+                    Exploración,
+                    patrimonio y aprendizaje.
+                </p>
+
+            </article>
+
+
+
+            <article class="tarjeta">
+
+                <span class="tarjeta-icono">
+                    🎒
+                </span>
+
+                <h3>
+                    3° Medio
+                </h3>
+
+                <p>
+                    Experiencias prácticas
+                    fuera del aula.
+                </p>
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     CALENDARIO
+========================================== -->
+
+<section
+    id="calendario"
+    class="seccion calendario"
+>
+
+
+    <div class="contenido-seccion">
+
+
+        <p class="mini-titulo">
+            CALENDARIO
+        </p>
+
+
+        <h2>
+            Planifica tu salida
+            a terreno
+        </h2>
+
+
+        <p class="texto-seccion">
+
+            Selecciona un día y completa
+            los datos de la actividad.
+
+        </p>
+
+
+
+        <div class="calendario-contenedor">
+
+
+
+            <!-- CALENDARIO -->
+
+            <div class="calendario-box">
+
+
+                <div class="calendario-titulo">
+
+
+                    <button
+                        type="button"
+                        id="mesAnterior"
+                    >
+                        ‹
+                    </button>
+
+
+                    <h3 id="mesActual">
+                        Septiembre 2026
+                    </h3>
+
+
+                    <button
+                        type="button"
+                        id="mesSiguiente"
+                    >
+                        ›
+                    </button>
+
+
+                </div>
+
+
+
+                <div class="semana">
+
+                    <span>LUN</span>
+                    <span>MAR</span>
+                    <span>MIÉ</span>
+                    <span>JUE</span>
+                    <span>VIE</span>
+                    <span>SÁB</span>
+                    <span>DOM</span>
+
+                </div>
+
+
+
+                <div
+                    class="dias"
+                    id="diasCalendario"
+                >
+                </div>
+
+
+            </div>
+
+
+
+            <!-- DATOS DE LA SALIDA -->
+
+            <div class="salida-box">
+
+
+                <div class="salida-titulo">
+
+
+                    <div class="icono-salida">
+                        📍
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Nueva salida
+                        </h3>
+
+                        <p>
+                            Programa una actividad
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <label>
+                    Fecha
+                </label>
+
+                <input
+                    type="date"
+                    id="fechaSalida"
+                >
+
+
+
+                <label>
+                    Hora de salida
+                </label>
+
+                <input
+                    type="time"
+                    id="horaSalida"
+                >
+
+
+
+                <label>
+                    Hora de regreso
+                </label>
+
+                <input
+                    type="time"
+                    id="horaRegreso"
+                >
+
+
+
+                <label>
+                    Lugar
+                </label>
+
+                <input
+                    type="text"
+                    id="lugarSalida"
+                    placeholder="Ej: Valle de Azapa"
+                >
+
+
+
+                <label>
+                    Descripción
+                </label>
+
+                <textarea
+                    id="descripcionSalida"
+                    placeholder="Describe brevemente la actividad"
+                ></textarea>
+
+
+
+                <button
+                    type="button"
+                    class="boton-programar"
+                    id="programar"
+                >
+
+                    Programar salida
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <div
+            class="resumen"
+            id="resumen"
+        >
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     PLANIFICACIÓN
+========================================== -->
+
+<section
+    id="planificacion"
+    class="seccion planificacion"
+>
+
+
+    <div class="contenido-seccion">
+
+
+        <p class="mini-titulo">
+            PLANIFICACIÓN
+        </p>
+
+
+        <h2>
+            Organiza tu salida
+        </h2>
+
+
+        <p class="texto-seccion">
+
+            Prepara todos los elementos
+            necesarios antes de comenzar.
+
+        </p>
+
+
+
+        <div class="plan-grid">
+
+
+            <article class="plan-card">
+
+                <span>
+                    📍
+                </span>
+
+                <h3>
+                    Lugar
+                </h3>
+
+                <p>
+                    Define el destino
+                    de la actividad.
+                </p>
+
+            </article>
+
+
+
+            <article class="plan-card">
+
+                <span>
+                    🕐
+                </span>
+
+                <h3>
+                    Horario
+                </h3>
+
+                <p>
+                    Organiza la salida
+                    y el regreso.
+                </p>
+
+            </article>
+
+
+
+            <article class="plan-card">
+
+                <span>
+                    🎒
+                </span>
+
+                <h3>
+                    Materiales
+                </h3>
+
+                <p>
+                    Prepara los elementos
+                    necesarios.
+                </p>
+
+            </article>
+
+
+
+            <article class="plan-card">
+
+                <span>
+                    👥
+                </span>
+
+                <h3>
+                    Curso
+                </h3>
+
+                <p>
+                    Define quiénes participarán.
+                </p>
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     AVISOS
+========================================== -->
+
+<section
+    id="avisos"
+    class="seccion avisos"
+>
+
+
+    <div class="contenido-seccion">
+
+
+        <p class="mini-titulo">
+            INFORMACIÓN
+        </p>
+
+
+        <h2>
+            Avisos
+        </h2>
+
+
+
+        <div class="aviso">
+
+
+            <span>
+                ⚑
+            </span>
+
+
+            <div>
+
+                <h3>
+                    Próxima salida
+                </h3>
+
+                <p>
+                    Revisa el calendario
+                    para conocer tus próximas
+                    actividades.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="aviso">
+
+
+            <span>
+                📢
+            </span>
+
+
+            <div>
+
+                <h3>
+                    Recordatorio
+                </h3>
+
+                <p>
+                    Recuerda preparar
+                    todos los materiales
+                    necesarios.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     CONFIGURACIÓN
+========================================== -->
+
+<section
+    id="configuracion"
+    class="seccion configuracion"
+>
+
+
+    <div class="contenido-seccion">
+
+
+        <p class="mini-titulo">
+            AJUSTES
+        </p>
+
+
+        <h2>
+            Configuración
+        </h2>
+
+
+        <p class="texto-seccion">
+
+            Personaliza algunas opciones
+            de GEESAT.
+
+        </p>
+
+
+
+        <div class="config-card">
+
+
+            <div>
+
+                <h3>
+                    Notificaciones
+                </h3>
+
+                <p>
+                    Recibir avisos sobre
+                    próximas actividades.
+                </p>
+
+            </div>
+
+
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    checked
+                >
+
+                <span></span>
+
+            </label>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script>
+
+
+/* ==========================================
+   CALENDARIO
+========================================== */
+
+const diasCalendario =
+    document.getElementById("diasCalendario");
+
+const mesActual =
+    document.getElementById("mesActual");
+
+const fechaSalida =
+    document.getElementById("fechaSalida");
+
+
+let fechaCalendario =
+    new Date(2026, 8, 1);
+
+
+
+function crearCalendario() {
+
+
+    diasCalendario.innerHTML = "";
+
+
+    const año =
+        fechaCalendario.getFullYear();
+
+
+    const mes =
+        fechaCalendario.getMonth();
+
+
+    const primerDia =
+        new Date(año, mes, 1)
+        .getDay();
+
+
+    const diasMes =
+        new Date(
+            año,
+            mes + 1,
+            0
+        )
+        .getDate();
+
+
+
+    const nombresMeses = [
+
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre"
+
+    ];
+
+
+
+    mesActual.textContent =
+        nombresMeses[mes]
+        + " "
+        + año;
+
+
+
+    let inicio =
+        primerDia === 0
+            ? 6
+            : primerDia - 1;
+
+
+
+    for (
+        let i = 0;
+        i < inicio;
+        i++
+    ) {
+
+
+        const vacio =
+            document.createElement("span");
+
+
+        vacio.className =
+            "dia vacio";
+
+
+        diasCalendario.appendChild(
+            vacio
+        );
+
+    }
+
+
+
+    for (
+        let dia = 1;
+        dia <= diasMes;
+        dia++
+    ) {
+
+
+        const elemento =
+            document.createElement("span");
+
+
+        elemento.className =
+            "dia";
+
+
+        elemento.textContent =
+            dia;
+
+
+
+        elemento.addEventListener(
+            "click",
+            () => {
+
+
+                const mesNumero =
+                    String(
+                        mes + 1
+                    )
+                    .padStart(
+                        2,
+                        "0"
+                    );
+
+
+                const diaNumero =
+                    String(dia)
+                    .padStart(
+                        2,
+                        "0"
+                    );
+
+
+                fechaSalida.value =
+                    `${año}-${mesNumero}-${diaNumero}`;
+
+
+
+                document
+                    .querySelectorAll(
+                        ".dia.seleccionado"
+                    )
+                    .forEach(
+                        elemento =>
+                            elemento
+                                .classList
+                                .remove(
+                                    "seleccionado"
+                                )
+                    );
+
+
+                elemento
+                    .classList
+                    .add(
+                        "seleccionado"
+                    );
+
+            }
+        );
+
+
+
+        diasCalendario
+            .appendChild(
+                elemento
+            );
+
+    }
+
+}
+
+
+
+crearCalendario();
+
+
+
+document
+    .getElementById("mesAnterior")
+    .addEventListener(
+        "click",
+        () => {
+
+
+            fechaCalendario
+                .setMonth(
+                    fechaCalendario
+                        .getMonth() - 1
+                );
+
+
+            crearCalendario();
+
+        }
+    );
+
+
+
+document
+    .getElementById("mesSiguiente")
+    .addEventListener(
+        "click",
+        () => {
+
+
+            fechaCalendario
+                .setMonth(
+                    fechaCalendario
+                        .getMonth() + 1
+                );
+
+
+            crearCalendario();
+
+        }
+    );
+
+
+
+/* ==========================================
+   PROGRAMAR SALIDA
+========================================== */
+
+document
+    .getElementById("programar")
+    .addEventListener(
+        "click",
+        () => {
+
+
+            const fecha =
+                document
+                    .getElementById(
+                        "fechaSalida"
+                    )
+                    .value;
+
+
+            const horaSalida =
+                document
+                    .getElementById(
+                        "horaSalida"
+                    )
+                    .value;
+
+
+            const horaRegreso =
+                document
+                    .getElementById(
+                        "horaRegreso"
+                    )
+                    .value;
+
+
+            const lugar =
+                document
+                    .getElementById(
+                        "lugarSalida"
+                    )
+                    .value;
+
+
+            const descripcion =
+                document
+                    .getElementById(
+                        "descripcionSalida"
+                    )
+                    .value;
+
+
+            const resumen =
+                document
+                    .getElementById(
+                        "resumen"
+                    );
+
+
+
+            if (
+                !fecha ||
+                !horaSalida ||
+                !horaRegreso ||
+                !lugar
+            ) {
+
+
+                alert(
+                    "Completa la fecha, horario y lugar."
+                );
+
+
+                return;
+
+            }
+
+
+
+            resumen
+                .classList
+                .add(
+                    "mostrar"
+                );
+
+
+
+            resumen.innerHTML = `
+
+                <div class="resumen-icono">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Salida programada
+                    </h3>
+
+                    <p>
+                        📅 ${fecha}
+                        &nbsp;&nbsp;
+                        🕐 ${horaSalida}
+                        -
+                        ${horaRegreso}
+                        &nbsp;&nbsp;
+                        📍 ${lugar}
+                    </p>
+
+                    ${
+                        descripcion
+                        ?
+                        `<small>${descripcion}</small>`
+                        :
+                        ""
+                    }
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+
+/* ==========================================
+   MENÚ ACTIVO AUTOMÁTICO
+========================================== */
+
+const secciones =
+    document.querySelectorAll(
+        ".seccion"
+    );
+
+
+const opciones =
+    document.querySelectorAll(
+        ".opcion:not(.cerrar)"
+    );
+
+
+
+const observador =
+    new IntersectionObserver(
+        entradas => {
+
+
+            entradas.forEach(
+                entrada => {
+
+
+                    if (
+                        entrada.isIntersecting
+                    ) {
+
+
+                        opciones.forEach(
+                            opcion =>
+                                opcion
+                                    .classList
+                                    .remove(
+                                        "activo"
+                                    )
+                        );
+
+
+
+                        const activa =
+                            document
+                                .querySelector(
+                                    `.opcion[href="#${entrada.target.id}"]`
+                                );
+
+
+                        if (activa) {
+
+                            activa
+                                .classList
+                                .add(
+                                    "activo"
+                                );
+
+                        }
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold: 0.45
+        }
+    );
+
+
+
+secciones.forEach(
+    seccion =>
+        observador.observe(
+            seccion
+        )
+);
+
+
+</script>
+
+
+</body>
+
+</html>
+</script>
+
+
+</body>
+
+</html>
