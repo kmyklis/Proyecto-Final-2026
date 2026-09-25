@@ -1,0 +1,1719 @@
+/* ==========================================
+   GENERAL
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f3e6c8;
+
+    color: #052d68;
+
+    overflow-x: hidden;
+
+}
+
+
+
+/* ==========================================
+   BARRA SUPERIOR
+========================================== */
+
+.barra {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 250px;
+
+    right: 0;
+
+    height: 78px;
+
+    background: #ffb000;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    padding:
+        0
+        25px;
+
+}
+
+
+.nombre {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+}
+
+
+.buscador {
+
+    width: 380px;
+
+    margin-left: 40px;
+
+}
+
+
+.buscador input {
+
+    width: 100%;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding:
+        0
+        15px;
+
+    background: #f3e6c8;
+
+    color: #052d68;
+
+    outline: none;
+
+}
+
+
+.perfil {
+
+    width: 43px;
+
+    height: 43px;
+
+    margin-left: auto;
+
+    border:
+        2px solid
+        #052d68;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    position: relative;
+
+}
+
+
+.cabeza {
+
+    position: absolute;
+
+    width: 12px;
+
+    height: 12px;
+
+    border:
+        2px solid
+        #052d68;
+
+    border-radius: 50%;
+
+    left: 50%;
+
+    top: 7px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.cuerpo {
+
+    position: absolute;
+
+    width: 23px;
+
+    height: 13px;
+
+    border:
+        2px solid
+        #052d68;
+
+    border-radius:
+        50% 50% 0 0;
+
+    left: 50%;
+
+    bottom: 5px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+
+/* ==========================================
+   SIDEBAR FIJA
+========================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 250px;
+
+    height: 100vh;
+
+    background: #f3e6c8;
+
+    border-right:
+        5px solid
+        #e9a71c;
+
+    padding:
+        25px
+        18px;
+
+    z-index: 1100;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo-contenedor {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.logo-contenedor img {
+
+    width: 85px;
+
+    height: 85px;
+
+    object-fit: contain;
+
+}
+
+
+.logo-contenedor h2 {
+
+    margin-top: 8px;
+
+    font-size: 20px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.logo-contenedor p {
+
+    margin-top: 4px;
+
+    color: #d69200;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+
+/* ==========================================
+   MENÚ
+========================================== */
+
+.menu-lateral {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+.opcion {
+
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        6px
+        8px;
+
+    border-radius: 8px;
+
+    color: #052d68;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    transition:
+        .3s ease;
+
+}
+
+
+.opcion:hover {
+
+    background:
+        rgba(
+            233,
+            167,
+            28,
+            .14
+        );
+
+    transform:
+        translateX(4px);
+
+}
+
+
+.opcion.activo {
+
+    background: #e7bd65;
+
+    box-shadow:
+        inset
+        4px
+        0
+        0
+        #052d68;
+
+}
+
+
+
+/* ==========================================
+   ICONOS
+========================================== */
+
+.icono {
+
+    width: 32px;
+
+    min-width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #e7a000;
+
+    font-size: 22px;
+
+}
+
+
+.opcion.activo .icono {
+
+    color: #052d68;
+
+}
+
+
+
+/* ==========================================
+   SEPARADOR
+========================================== */
+
+.separador {
+
+    width: 100%;
+
+    height: 1px;
+
+    background: #cdbd99;
+
+    margin:
+        18px
+        0;
+
+}
+
+
+
+/* ==========================================
+   CERRAR SESIÓN
+========================================== */
+
+.cerrar {
+
+    margin-top: auto;
+
+    color: #075f45;
+
+}
+
+
+.cerrar .icono {
+
+    color: #075f45;
+
+}
+
+
+
+/* ==========================================
+   CONTENIDO
+========================================== */
+
+.contenido {
+
+    margin-left: 250px;
+
+    width:
+        calc(
+            100% - 250px
+        );
+
+    padding-top: 78px;
+
+}
+
+
+.seccion {
+
+    min-height:
+        calc(
+            100vh - 78px
+        );
+
+    padding:
+        90px
+        7%;
+
+    scroll-margin-top: 78px;
+
+}
+
+
+.contenido-seccion {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: auto;
+
+}
+
+
+
+/* ==========================================
+   TEXTOS
+========================================== */
+
+.mini-titulo {
+
+    color: #d99500;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+
+}
+
+
+h2 {
+
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            55px
+        );
+
+    line-height: 1.05;
+
+    margin-bottom: 18px;
+
+}
+
+
+.texto-seccion {
+
+    max-width: 650px;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* ==========================================
+   INICIO
+========================================== */
+
+.inicio {
+
+    background: #f3e6c8;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 55px;
+
+    align-items: center;
+
+}
+
+
+.texto-inicio h1 {
+
+    font-size:
+        clamp(
+            48px,
+            6vw,
+            72px
+        );
+
+    line-height: .95;
+
+    margin-bottom: 25px;
+
+    font-weight: 300;
+
+}
+
+
+.texto-inicio h1 strong {
+
+    display: block;
+
+    color: #e7a000;
+
+}
+
+
+.descripcion {
+
+    max-width: 500px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+
+}
+
+
+.boton-principal {
+
+    display: inline-block;
+
+    padding:
+        14px
+        30px;
+
+    background: #052d68;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    transition: .3s;
+
+}
+
+
+.boton-principal:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: #e7a000;
+
+    color: #052d68;
+
+}
+
+
+
+/* ==========================================
+   FOTOS INICIO
+========================================== */
+
+.tarjetas-inicio {
+
+    height: 430px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 15px;
+
+}
+
+
+.tarjeta-foto {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 9px;
+
+    background-size: cover;
+
+    background-position: center;
+
+    transition:
+        transform .5s ease;
+
+}
+
+
+.tarjeta-foto:hover {
+
+    transform:
+        translateY(-6px);
+
+}
+
+
+.tarjeta-foto::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent
+            45%,
+            rgba(
+                0,
+                0,
+                0,
+                .75
+            )
+        );
+
+}
+
+
+.tarjeta-foto > div {
+
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 20px;
+
+    z-index: 2;
+
+    color: white;
+
+}
+
+
+.tarjeta-foto h3 {
+
+    margin-bottom: 6px;
+
+    font-size: 21px;
+
+}
+
+
+.tarjeta-foto p {
+
+    font-size: 13px;
+
+}
+
+
+.foto-1 {
+
+    background-image:
+        url("Playa.jpg");
+
+}
+
+
+.foto-2 {
+
+    background-image:
+        url("morro.jpg");
+
+}
+
+
+
+/* ==========================================
+   CURSOS
+========================================== */
+
+.cursos {
+
+    background: #052d68;
+
+    color: white;
+
+}
+
+
+.cursos .mini-titulo {
+
+    color: #e7a000;
+
+}
+
+
+.tarjetas {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 20px;
+
+    margin-top: 45px;
+
+}
+
+
+.tarjeta {
+
+    min-height: 220px;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    background: #f3e6c8;
+
+    color: #052d68;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+
+.tarjeta:hover {
+
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            0,
+            0,
+            0,
+            .25
+        );
+
+}
+
+
+.tarjeta-icono {
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #e7a000;
+
+    font-size: 33px;
+
+}
+
+
+.tarjeta h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 23px;
+
+}
+
+
+.tarjeta p {
+
+    line-height: 1.5;
+
+}
+
+
+
+/* ==========================================
+   CALENDARIO
+========================================== */
+
+.calendario {
+
+    background: #f3e6c8;
+
+}
+
+
+.calendario-contenedor {
+
+    max-width: 1050px;
+
+    margin-top: 40px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        1fr;
+
+    gap: 25px;
+
+}
+
+
+
+/* ==========================================
+   CALENDARIO BOX
+========================================== */
+
+.calendario-box {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            5,
+            45,
+            104,
+            .15
+        );
+
+}
+
+
+.calendario-titulo {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.calendario-titulo h3 {
+
+    font-size: 23px;
+
+}
+
+
+.calendario-titulo button {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #052d68;
+
+    color: white;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+
+.calendario-titulo button:hover {
+
+    background: #e7a000;
+
+    color: #052d68;
+
+}
+
+
+
+/* ==========================================
+   SEMANA
+========================================== */
+
+.semana {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            7,
+            1fr
+        );
+
+    margin-bottom: 8px;
+
+}
+
+
+.semana span {
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+}
+
+
+
+/* ==========================================
+   DÍAS
+========================================== */
+
+.dias {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            7,
+            1fr
+        );
+
+    gap: 5px;
+
+}
+
+
+.dia {
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.dia:hover {
+
+    background:
+        rgba(
+            231,
+            160,
+            0,
+            .25
+        );
+
+}
+
+
+.dia.seleccionado {
+
+    background: #e7a000;
+
+    color: #052d68;
+
+    font-weight: bold;
+
+}
+
+
+.dia.vacio {
+
+    cursor: default;
+
+}
+
+
+.dia.vacio:hover {
+
+    background: transparent;
+
+}
+
+
+
+/* ==========================================
+   FORMULARIO SALIDA
+========================================== */
+
+.salida-box {
+
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(
+            5,
+            45,
+            104,
+            .15
+        );
+
+}
+
+
+.salida-titulo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.icono-salida {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e7a000;
+
+    font-size: 20px;
+
+}
+
+
+.salida-titulo h3 {
+
+    font-size: 22px;
+
+}
+
+
+.salida-titulo p {
+
+    margin-top: 4px;
+
+    color: #777;
+
+    font-size: 12px;
+
+}
+
+
+.salida-box label {
+
+    display: block;
+
+    margin:
+        13px
+        0
+        5px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.salida-box input,
+.salida-box textarea {
+
+    width: 100%;
+
+    border:
+        1px solid
+        #d6c9aa;
+
+    border-radius: 6px;
+
+    background: #faf8f0;
+
+    color: #052d68;
+
+    padding: 10px;
+
+    outline: none;
+
+}
+
+
+.salida-box input {
+
+    height: 41px;
+
+}
+
+
+.salida-box textarea {
+
+    height: 70px;
+
+    resize: none;
+
+}
+
+
+.salida-box input:focus,
+.salida-box textarea:focus {
+
+    border-color: #e7a000;
+
+}
+
+
+.boton-programar {
+
+    width: 100%;
+
+    height: 45px;
+
+    margin-top: 18px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #052d68;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.boton-programar:hover {
+
+    background: #e7a000;
+
+    color: #052d68;
+
+}
+
+
+
+/* ==========================================
+   RESUMEN
+========================================== */
+
+.resumen {
+
+    display: none;
+
+}
+
+
+.resumen.mostrar {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    max-width: 1050px;
+
+    margin-top: 20px;
+
+    padding:
+        18px
+        22px;
+
+    border-radius: 8px;
+
+    background: #e7bd65;
+
+    color: #052d68;
+
+}
+
+
+.resumen-icono {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #052d68;
+
+    color: white;
+
+    font-weight: bold;
+
+}
+
+
+
+/* ==========================================
+   PLANIFICACIÓN
+========================================== */
+
+.planificacion {
+
+    background: #052d68;
+
+    color: white;
+
+}
+
+
+.planificacion .mini-titulo {
+
+    color: #e7a000;
+
+}
+
+
+.plan-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 18px;
+
+    margin-top: 45px;
+
+}
+
+
+.plan-card {
+
+    padding: 28px;
+
+    border-radius: 10px;
+
+    background: #f3e6c8;
+
+    color: #052d68;
+
+    transition: .3s;
+
+}
+
+
+.plan-card:hover {
+
+    transform:
+        translateY(-7px);
+
+}
+
+
+.plan-card span {
+
+    display: block;
+
+    margin-bottom: 20px;
+
+    font-size: 32px;
+
+}
+
+
+.plan-card h3 {
+
+    margin-bottom: 10px;
+
+}
+
+
+
+/* ==========================================
+   AVISOS
+========================================== */
+
+.avisos {
+
+    background: #f3e6c8;
+
+}
+
+
+.aviso {
+
+    max-width: 750px;
+
+    margin-top: 20px;
+
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border-left:
+        5px solid
+        #e7a000;
+
+    border-radius: 8px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 25px
+        rgba(
+            5,
+            45,
+            104,
+            .08
+        );
+
+}
+
+
+.aviso > span {
+
+    font-size: 30px;
+
+}
+
+
+.aviso h3 {
+
+    margin-bottom: 7px;
+
+}
+
+
+
+/* ==========================================
+   CONFIGURACIÓN
+========================================== */
+
+.configuracion {
+
+    background: #052d68;
+
+    color: white;
+
+}
+
+
+.configuracion .mini-titulo {
+
+    color: #e7a000;
+
+}
+
+
+.config-card {
+
+    max-width: 650px;
+
+    margin-top: 40px;
+
+    padding: 24px;
+
+    border-radius: 9px;
+
+    background: #f3e6c8;
+
+    color: #052d68;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+}
+
+
+.config-card p {
+
+    margin-top: 6px;
+
+    color: #666;
+
+}
+
+
+
+/* ==========================================
+   SWITCH
+========================================== */
+
+.switch input {
+
+    display: none;
+
+}
+
+
+.switch span {
+
+    position: relative;
+
+    display: block;
+
+    width: 50px;
+
+    height: 26px;
+
+    border-radius: 20px;
+
+    background: #aaa;
+
+    cursor: pointer;
+
+}
+
+
+.switch span::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+
+    height: 20px;
+
+    top: 3px;
+
+    left: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    transition: .3s;
+
+}
+
+
+.switch input:checked + span {
+
+    background: #e7a000;
+
+}
+
+
+.switch input:checked + span::after {
+
+    transform:
+        translateX(24px);
+
+}
+
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (
+    max-width: 950px
+) {
+
+
+    .sidebar {
+
+        width: 210px;
+
+    }
+
+
+    .barra {
+
+        left: 210px;
+
+    }
+
+
+    .contenido {
+
+        margin-left: 210px;
+
+        width:
+            calc(
+                100% - 210px
+            );
+
+    }
+
+
+    .inicio {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .tarjetas-inicio {
+
+        height: 300px;
+
+    }
+
+
+    .calendario-contenedor {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .tarjetas {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .plan-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+    }
+
+}
+
+
+
+@media (
+    max-width: 700px
+) {
+
+
+    .sidebar {
+
+        width: 170px;
+
+    }
+
+
+    .barra {
+
+        left: 170px;
+
+        padding:
+            0
+            12px;
+
+    }
+
+
+    .nombre {
+
+        display: none;
+
+    }
+
+
+    .buscador {
+
+        width: 65%;
+
+        margin-left: 0;
+
+    }
+
+
+    .contenido {
+
+        margin-left: 170px;
+
+        width:
+            calc(
+                100% - 170px
+            );
+
+    }
+
+
+    .logo-contenedor img {
+
+        width: 65px;
+
+        height: 65px;
+
+    }
+
+
+    .logo-contenedor h2 {
+
+        font-size: 16px;
+
+    }
+
+
+    .opcion {
+
+        font-size: 14px;
+
+    }
+
+
+    .icono {
+
+        width: 25px;
+
+        min-width: 25px;
+
+        font-size: 18px;
+
+    }
+
+
+    .seccion {
+
+        padding:
+            70px
+            25px;
+
+    }
+
+
+    .tarjetas-inicio {
+
+        grid-template-columns: 1fr;
+
+        height: 500px;
+
+    }
+
+
+    .plan-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
