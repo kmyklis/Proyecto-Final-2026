@@ -87,6 +87,28 @@
                 <!-- FORMULARIO -->
                 <form id="form-login" class="form-login">
 
+                    <!-- CÓDIGO A AGREGAR (Selector Docente / UTP) -->
+<div class="role-selector-container">
+    <label class="role-label">Perfil de Usuario</label>
+    <div class="role-options">
+        <label class="role-pill">
+            <input type="radio" name="rol" value="docente" checked>
+            <span class="pill-content">
+                <span class="pill-icon">👨‍🏫</span>
+                <span>Docente</span>
+            </span>
+        </label>
+
+        <label class="role-pill">
+            <input type="radio" name="rol" value="utp">
+            <span class="pill-content">
+                <span class="pill-icon">🏛️</span>
+                <span>UTP</span>
+            </span>
+        </label>
+    </div>
+</div>
+
                     <div class="input-group">
                         <label for="email">Correo Electrónico</label>
                         <input id="email" type="email" placeholder="alumno@liceoavb.cl" required>
@@ -135,58 +157,63 @@
     </main>
 
     <script>
-        // Lógica de modo oscuro
-const themeToggle = document.querySelector("#theme-toggle");
-const themeIcon = document.querySelector("#theme-icon");
-const themeText = document.querySelector("#theme-text");
+    // Lógica de modo oscuro
+    const themeToggle = document.querySelector("#theme-toggle");
+    const themeIcon = document.querySelector("#theme-icon");
+    const themeText = document.querySelector("#theme-text");
 
-// Revisa si el usuario ya tenía un tema guardado
-if (localStorage.getItem("tema") === "oscuro") {
-    document.body.classList.add("dark-mode");
-    themeIcon.textContent = "☀️";
-    themeText.textContent = "Modo Claro";
-}
-
-themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const esOscuro = document.body.classList.contains("dark-mode");
-
-    if (esOscuro) {
+    // Revisa si el usuario ya tenía un tema guardado
+    if (localStorage.getItem("tema") === "oscuro") {
+        document.body.classList.add("dark-mode");
         themeIcon.textContent = "☀️";
         themeText.textContent = "Modo Claro";
-        localStorage.setItem("tema", "oscuro");
-    } else {
-        themeIcon.textContent = "🌙";
-        themeText.textContent = "Modo Oscuro";
-        localStorage.setItem("tema", "claro");
     }
-});
-        // Lógica de inicio de sesión
-        document.querySelector("#form-login").addEventListener("submit", async e => {
+
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const esOscuro = document.body.classList.contains("dark-mode");
+
+        if (esOscuro) {
+            themeIcon.textContent = "☀️";
+            themeText.textContent = "Modo Claro";
+            localStorage.setItem("tema", "oscuro");
+        } else {
+            themeIcon.textContent = "🌙";
+            themeText.textContent = "Modo Oscuro";
+            localStorage.setItem("tema", "claro");
+        }
+    });
+
+    // Lógica de inicio de sesión
+   document.querySelector("#form-login").addEventListener("submit", (e) => {
     e.preventDefault();
+    
     const correo = document.querySelector('#email').value;
     const clave = document.querySelector('#password').value;
+    const rol = document.querySelector('input[name="rol"]:checked').value;
 
-    
-    try {
-        const res = await fetch("http://localhost:3000/api/login", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ correo, clave })
-        });
-        const data = await res.json();
+    // Extraer y formatear el nombre desde el correo
+    let nombreFormateado = correo.split('@')[0].replace(/[\._]/g, ' ');
+    nombreFormateado = nombreFormateado
+        .split(' ')
+        .map(palabra => palabra.charAt(0).toUpperCase() + palabra.slice(1))
+        .join(' ');
 
-        if (res.ok) {
-            localStorage.setItem("usuario", JSON.stringify(data.usuario));
-            window.location.href = "prub.html";
-        } else {
-            alert(data.mensaje);
-        }
-    } catch (err) {
-        alert("No se pudo conectar con el servidor");
+    // Guardar los datos en el navegador
+    localStorage.setItem("usuario", JSON.stringify({ 
+        correo, 
+        rol, 
+        nombre: nombreFormateado 
+    }));
+
+    // Redirigir según el rol seleccionado
+    if (rol === "utp") {
+        window.location.href = "utp.html";
+    } else {
+        window.location.href = "prub.html";
     }
 });
-    </script>
-</body>
+</script>
 
+</body>
 </html>
