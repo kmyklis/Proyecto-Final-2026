@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geesat - Panel UTP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        geesatBlue: '#205081',
+                        geesatBlueDark: '#143557',
+                        geesatAccent: '#f5d36e',
+                        geesatLight: '#f8fafc',
+                        geesatDark: '#0f172a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-thumb { background: #334155; }
+    </style>
+</head>
+<body class="bg-geesatLight dark:bg-geesatDark text-slate-800 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
+
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-geesatBlue dark:bg-geesatAccent z-50 transition-all duration-150 w-0"></div>
+
+    <!-- Barra Superior de Avisos -->
+    <div class="bg-geesatBlueDark text-white text-xs py-2 px-4 text-center tracking-wide font-medium flex items-center justify-center gap-3">
+        <span><i class="fa-solid fa-user-shield text-geesatAccent mr-1.5"></i> Módulo de Gestión UTP — Unidad Técnico Pedagógica</span>
+    </div>
+
+    <!-- Header / Navegación -->
+    <header id="header" class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="#inicio" class="text-2xl font-black tracking-tighter text-geesatBlue dark:text-white flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-geesatBlue text-white flex items-center justify-center font-bold text-xl shadow-md">G</div>
+                    <span>Geesat<span class="text-geesatAccent">.</span></span>
+                </a>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-100 dark:bg-slate-800/60 p-1.5 rounded-full border border-slate-200 dark:border-slate-700">
+                <a href="#inicio" class="px-4 py-2 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-geesatBlue dark:hover:text-white transition-all">
+                    <i class="fa-solid fa-chart-line mr-1.5"></i> Resumen
+                </a>
+                <a href="#gestion-terrenos" class="px-4 py-2 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-geesatBlue dark:hover:text-white transition-all">
+                    <i class="fa-solid fa-[#map-location-dot] fa-map-location-dot mr-1.5"></i> Revisión de Terrenos
+                </a>
+                <a href="#publicar-comunicado" class="px-4 py-2 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-geesatBlue dark:hover:text-white transition-all">
+                    <i class="fa-solid fa-bullhorn mr-1.5"></i> Publicar Avisos
+                </a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <button id="theme-toggle" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-yellow-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shadow-sm">
+                    <i class="fa-solid fa-moon dark:hidden text-sm"></i>
+                    <i class="fa-solid fa-sun hidden dark:inline text-sm"></i>
+                </button>
+                <div class="hidden sm:flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-700">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150" alt="UTP" class="w-9 h-9 rounded-full object-cover ring-2 ring-geesatAccent">
+                    <div class="text-left">
+                        <p class="text-xs font-bold leading-tight">Coordinación UTP</p>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400">utp@geesat.edu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Inicio / Resumen de Gestión -->
+    <section id="inicio" class="relative bg-gradient-to-br from-geesatBlueDark to-geesatBlue text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 bg-amber-400/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-medium text-geesatAccent border border-amber-400/30">
+                    <i class="fa-solid fa-shield-halved"></i> <span>Panel de Control UTP</span>
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                    Bienvenido/a, <br><span class="text-geesatAccent">Coordinador/a UTP</span>
+                </h1>
+                
+                <p class="text-base text-slate-200 font-light max-w-xl">
+                    Gestione las solicitudes de salidas a terreno recibidas de los docentes, emita resoluciones institucionales y publique comunicados pedagógicos oficiales.
+                </p>
+
+                <!-- Tarjetas de Métricas Rápidas -->
+                <div class="grid grid-cols-3 gap-4 pt-4">
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                        <p class="text-2xl font-bold text-amber-300">3</p>
+                        <p class="text-xs text-slate-300">Pendientes</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                        <p class="text-2xl font-bold text-emerald-400">12</p>
+                        <p class="text-xs text-slate-300">Aprobadas</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10">
+                        <p class="text-2xl font-bold text-sky-300">8</p>
+                        <p class="text-xs text-slate-300">Avisos Emitidos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Perfil / Rol -->
+            <div class="lg:col-span-5">
+                <div class="bg-white dark:bg-slate-800 text-slate-800 dark:text-white rounded-3xl p-6 shadow-2xl border border-slate-100 dark:border-slate-700">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=300" alt="UTP" class="w-16 h-16 rounded-2xl object-cover shadow-md">
+                        <div>
+                            <h3 class="text-lg font-bold">Jefatura Pedagógica UTP</h3>
+                            <p class="text-xs text-geesatBlue dark:text-geesatAccent font-medium">Dirección Académica Central</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 pt-4 border-t border-slate-100 dark:border-slate-700 text-sm">
+                        <div class="flex justify-between py-1">
+                            <span class="text-slate-500 dark:text-slate-400">Privilegios:</span>
+                            <span class="font-semibold text-xs bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded">Administrador/a</span>
+                        </div>
+                        <div class="flex justify-between py-1">
+                            <span class="text-slate-500 dark:text-slate-400">Acciones Disponibles:</span>
+                            <span class="font-semibold text-xs">Aprobar, Rechazar, Editar, Publicar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Revisión y Gestión de Salidas a Terreno -->
+    <section id="gestion-terrenos" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+            <div>
+                <span class="text-xs font-semibold uppercase tracking-widest text-geesatBlue dark:text-geesatAccent bg-blue-50 dark:bg-slate-800 px-3 py-1 rounded-full">Módulo Pedagógico</span>
+                <h2 class="text-3xl font-bold mt-2">Gestión de Solicitudes de Terreno</h2>
+            </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+            <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
+                <h3 class="font-bold text-slate-800 dark:text-white">Solicitudes Recibidas de Docentes</h3>
+                <span class="text-xs bg-blue-50 dark:bg-slate-700 text-geesatBlue dark:text-geesatAccent font-semibold px-3 py-1 rounded-full">3 Pendientes</span>
+            </div>
+
+            <!-- Tabla de Solicitudes Interactiva -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm">
+                    <thead class="bg-slate-50 dark:bg-slate-900/50 text-slate-500 dark:text-slate-400 uppercase font-semibold">
+                        <tr>
+                            <th class="p-4">Docente / Asignatura</th>
+                            <th class="p-4">Destino</th>
+                            <th class="p-4">Fecha & Estudiantes</th>
+                            <th class="p-4">Estado</th>
+                            <th class="p-4 text-center">Acciones UTP</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50" id="tabla-solicitudes">
+                        
+                        <!-- Item 1 -->
+                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-700/30 transition-colors">
+                            <td class="p-4">
+                                <p class="font-bold">Prof. Elena Silva</p>
+                                <p class="text-xs text-slate-500">Ingeniería Geológica - 4to Año</p>
+                            </td>
+                            <td class="p-4 font-medium">Yacimiento Norte Sector B</td>
+                            <td class="p-4">
+                                <p><i class="fa-regular fa-calendar mr-1"></i> 12 Octubre, 2026</p>
+                                <p class="text-xs text-slate-500">38 Estudiantes</p>
+                            </td>
+                            <td class="p-4">
+                                <span class="estado-tag bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 text-xs font-bold px-2.5 py-1 rounded-full">Pendiente</span>
+                            </td>
+                            <td class="p-4 flex justify-center gap-2">
+                                <button onclick="cambiarEstado(this, 'aprobar')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all">
+                                    <i class="fa-solid fa-check"></i> Aprobar
+                                </button>
+                                <button onclick="cambiarEstado(this, 'rechazar')" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all">
+                                    <i class="fa-solid fa-xmark"></i> Rechazar
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Item 2 -->
+                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-700/30 transition-colors">
+                            <td class="p-4">
+                                <p class="font-bold">Prof. Roberto Gómez</p>
+                                <p class="text-xs text-slate-500">Geometalurgia Aplicada - 3er Año</p>
+                            </td>
+                            <td class="p-4 font-medium">Planta de Tratamiento HidroIquique</td>
+                            <td class="p-4">
+                                <p><i class="fa-regular fa-calendar mr-1"></i> 25 Octubre, 2026</p>
+                                <p class="text-xs text-slate-500">25 Estudiantes</p>
+                            </td>
+                            <td class="p-4">
+                                <span class="estado-tag bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 text-xs font-bold px-2.5 py-1 rounded-full">Pendiente</span>
+                            </td>
+                            <td class="p-4 flex justify-center gap-2">
+                                <button onclick="cambiarEstado(this, 'aprobar')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all">
+                                    <i class="fa-solid fa-check"></i> Aprobar
+                                </button>
+                                <button onclick="cambiarEstado(this, 'rechazar')" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all">
+                                    <i class="fa-solid fa-xmark"></i> Rechazar
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Publicar Comunicados Oficiales -->
+    <section id="publicar-comunicado" class="py-16 bg-slate-100 dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-slate-200 dark:border-slate-700">
+                <span class="text-xs font-semibold uppercase tracking-widest text-geesatBlue dark:text-geesatAccent bg-blue-50 dark:bg-slate-900 px-3 py-1 rounded-full">Difusión Institucional</span>
+                <h3 class="text-2xl font-bold mt-2 mb-6 text-slate-800 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square text-geesatBlue"></i> Publicar Nuevo Aviso Pedagógico (UTP)
+                </h3>
+
+                <form id="form-comunicado" onsubmit="publicarAviso(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Título del Comunicado</label>
+                        <input type="text" required placeholder="Ej. Nuevos Criterios para la Planificación de Clases 2026" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Categoría</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none">
+                                <option>Urgente</option>
+                                <option>Académico</option>
+                                <option>Pedagógico</option>
+                                <option>Informativo General</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Dirigido a:</label>
+                            <select class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none">
+                                <option>Todos los Docentes</option>
+                                <option>Docentes Titulares</option>
+                                <option>Estudiantes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Cuerpo del Mensaje</label>
+                        <textarea rows="4" required placeholder="Escriba la circular o indicación oficial aquí..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-geesatBlue hover:bg-geesatBlueDark text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-sm flex items-center justify-center gap-2">
+                        <span>Emitir Comunicado Institucional</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+
+                <div id="comunicado-success" class="hidden mt-4 p-4 bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 text-emerald-700 dark:text-emerald-300 rounded-xl text-xs font-medium text-center">
+                    <i class="fa-solid fa-circle-check mr-1"></i> ¡Comunicado publicado exitosamente en los paneles de los docentes!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-geesatBlueDark text-white/80 py-8 border-t border-slate-800 text-center text-xs">
+        &copy; 2026 Geesat Portal Institucional — Módulo Superior UTP.
+    </footer>
+
+    <!-- LÓGICA Y SCRIPTS DE UTP -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. CARGAR DATOS DEL USUARIO LOGUEADO
+            const usuarioGuardado = localStorage.getItem("usuario");
+
+            if (usuarioGuardado) {
+                const usuario = JSON.parse(usuarioGuardado);
+                const esUTP = usuario.rol === 'utp';
+                const prefijo = esUTP ? 'Coordinador/a' : 'Prof.';
+                const nombreCompleto = `${prefijo} ${usuario.nombre}`;
+
+                const tituloBienvenida = document.querySelector("h1");
+                if (tituloBienvenida) {
+                    tituloBienvenida.innerHTML = `Bienvenido/a, <br><span class="text-geesatAccent">${nombreCompleto}</span>`;
+                }
+
+                const tarjetaNombre = document.querySelector(".bg-white h3, .card h3");
+                if (tarjetaNombre) {
+                    tarjetaNombre.textContent = nombreCompleto;
+                }
+
+                const headerUserContainer = document.querySelector("header .hidden.sm\\:flex");
+                if (headerUserContainer) {
+                    const textoHeader = headerUserContainer.querySelector(".text-left");
+                    if (textoHeader) {
+                        textoHeader.innerHTML = `<p class="text-xs font-bold leading-tight">${nombreCompleto}</p><p class="text-[10px] text-slate-500 dark:text-slate-400">${usuario.correo}</p>`;
+                    }
+                }
+            }
+
+            // 2. MODO OSCURO
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            themeToggleBtn?.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+            });
+        });
+
+        // 3. ACCIONES DE UTP (Aprobar/Rechazar Solicitud)
+        function cambiarEstado(btn, accion) {
+            const fila = btn.closest('tr');
+            const tag = fila.querySelector('.estado-tag');
+
+            if (accion === 'aprobar') {
+                tag.className = "estado-tag bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-full";
+                tag.textContent = "Aprobada por UTP";
+            } else if (accion === 'rechazar') {
+                tag.className = "estado-tag bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 text-xs font-bold px-2.5 py-1 rounded-full";
+                tag.textContent = "Rechazada";
+            }
+        }
+
+        // 4. PUBLICAR COMUNICADO
+        function publicarAviso(e) {
+            e.preventDefault();
+            const alertMsg = document.getElementById('comunicado-success');
+            alertMsg.classList.remove('hidden');
+            document.getElementById('form-comunicado').reset();
+            setTimeout(() => alertMsg.classList.add('hidden'), 4000);
+        }
+    </script>
+</body>
+</html>
