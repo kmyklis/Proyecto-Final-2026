@@ -60,7 +60,7 @@
                     <i class="fa-solid fa-chart-line mr-1.5"></i> Resumen
                 </a>
                 <a href="#gestion-terrenos" class="px-4 py-2 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-geesatBlue dark:hover:text-white transition-all">
-                    <i class="fa-solid fa-[#map-location-dot] fa-map-location-dot mr-1.5"></i> Revisión de Terrenos
+                    <i class="fa-solid fa-map-location-dot mr-1.5"></i> Revisión de Terrenos
                 </a>
                 <a href="#publicar-comunicado" class="px-4 py-2 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-geesatBlue dark:hover:text-white transition-all">
                     <i class="fa-solid fa-bullhorn mr-1.5"></i> Publicar Avisos
@@ -153,7 +153,7 @@
         <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
             <div class="p-6 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
                 <h3 class="font-bold text-slate-800 dark:text-white">Solicitudes Recibidas de Docentes</h3>
-                <span class="text-xs bg-blue-50 dark:bg-slate-700 text-geesatBlue dark:text-geesatAccent font-semibold px-3 py-1 rounded-full">3 Pendientes</span>
+                <span id="contador-pendientes" class="text-xs bg-blue-50 dark:bg-slate-700 text-geesatBlue dark:text-geesatAccent font-semibold px-3 py-1 rounded-full">2 Pendientes</span>
             </div>
 
             <!-- Tabla de Solicitudes Interactiva -->
@@ -169,52 +169,42 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-slate-100 dark:divide-slate-700/50" id="tabla-solicitudes">
-                        
-                        <!-- Item 1 -->
-                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-700/30 transition-colors">
+
+                        <tr data-estado="pendiente" data-docente="Prof. Elena Silva" data-curso="Ingeniería Geológica - 4to Año" data-destino="Yacimiento Norte Sector B" data-fecha="2026-10-12" data-estudiantes="38" class="hover:bg-slate-50/50 dark:hover:bg-slate-700/30 transition-colors">
                             <td class="p-4">
                                 <p class="font-bold">Prof. Elena Silva</p>
                                 <p class="text-xs text-slate-500">Ingeniería Geológica - 4to Año</p>
                             </td>
-                            <td class="p-4 font-medium">Yacimiento Norte Sector B</td>
+                            <td class="p-4 font-medium c-destino">Yacimiento Norte Sector B</td>
                             <td class="p-4">
-                                <p><i class="fa-regular fa-calendar mr-1"></i> 12 Octubre, 2026</p>
-                                <p class="text-xs text-slate-500">38 Estudiantes</p>
+                                <p><i class="fa-regular fa-calendar mr-1"></i> <span class="c-fecha">12 Octubre, 2026</span></p>
+                                <p class="text-xs text-slate-500"><span class="c-est">38</span> Estudiantes</p>
                             </td>
-                            <td class="p-4">
+                            <td class="p-4 max-w-[260px]">
                                 <span class="estado-tag bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 text-xs font-bold px-2.5 py-1 rounded-full">Pendiente</span>
+                                <p class="resolucion-nota hidden mt-2 text-[11px] leading-snug text-slate-500 dark:text-slate-400"></p>
                             </td>
-                            <td class="p-4 flex justify-center gap-2">
-                                <button onclick="cambiarEstado(this, 'aprobar')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all">
-                                    <i class="fa-solid fa-check"></i> Aprobar
-                                </button>
-                                <button onclick="cambiarEstado(this, 'rechazar')" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all">
-                                    <i class="fa-solid fa-xmark"></i> Rechazar
-                                </button>
+                            <td class="p-4">
+                                <div class="acciones flex flex-wrap justify-center gap-2"></div>
                             </td>
                         </tr>
 
-                        <!-- Item 2 -->
-                        <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-700/30 transition-colors">
+                        <tr data-estado="pendiente" data-docente="Prof. Roberto Gómez" data-curso="Geometalurgia Aplicada - 3er Año" data-destino="Planta de Tratamiento HidroIquique" data-fecha="2026-10-25" data-estudiantes="25" class="hover:bg-slate-50/50 dark:hover:bg-slate-700/30 transition-colors">
                             <td class="p-4">
                                 <p class="font-bold">Prof. Roberto Gómez</p>
                                 <p class="text-xs text-slate-500">Geometalurgia Aplicada - 3er Año</p>
                             </td>
-                            <td class="p-4 font-medium">Planta de Tratamiento HidroIquique</td>
+                            <td class="p-4 font-medium c-destino">Planta de Tratamiento HidroIquique</td>
                             <td class="p-4">
-                                <p><i class="fa-regular fa-calendar mr-1"></i> 25 Octubre, 2026</p>
-                                <p class="text-xs text-slate-500">25 Estudiantes</p>
+                                <p><i class="fa-regular fa-calendar mr-1"></i> <span class="c-fecha">25 Octubre, 2026</span></p>
+                                <p class="text-xs text-slate-500"><span class="c-est">25</span> Estudiantes</p>
                             </td>
-                            <td class="p-4">
+                            <td class="p-4 max-w-[260px]">
                                 <span class="estado-tag bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 text-xs font-bold px-2.5 py-1 rounded-full">Pendiente</span>
+                                <p class="resolucion-nota hidden mt-2 text-[11px] leading-snug text-slate-500 dark:text-slate-400"></p>
                             </td>
-                            <td class="p-4 flex justify-center gap-2">
-                                <button onclick="cambiarEstado(this, 'aprobar')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all">
-                                    <i class="fa-solid fa-check"></i> Aprobar
-                                </button>
-                                <button onclick="cambiarEstado(this, 'rechazar')" class="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all">
-                                    <i class="fa-solid fa-xmark"></i> Rechazar
-                                </button>
+                            <td class="p-4">
+                                <div class="acciones flex flex-wrap justify-center gap-2"></div>
                             </td>
                         </tr>
 
@@ -282,6 +272,109 @@
         &copy; 2026 Geesat Portal Institucional — Módulo Superior UTP.
     </footer>
 
+
+    <!-- MODAL DE GESTIÓN DE SOLICITUDES -->
+    <div id="modal-solicitud" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 bg-geesatDark/70 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="bg-white dark:bg-slate-800 w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col max-h-[92vh] overflow-hidden">
+            <!-- Cabecera -->
+            <div id="modal-head" class="px-6 py-5 flex items-start gap-3 border-b border-slate-200 dark:border-slate-700">
+                <div id="modal-icono" class="w-11 h-11 rounded-2xl flex items-center justify-center text-lg flex-shrink-0"></div>
+                <div class="flex-1">
+                    <h3 id="modal-titulo" class="text-lg font-bold"></h3>
+                    <p id="modal-sub" class="text-xs text-slate-500 dark:text-slate-400 mt-0.5"></p>
+                </div>
+                <button type="button" onclick="cerrarModal()" aria-label="Cerrar" class="p-2 -mr-2 -mt-1 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="modal-form" onsubmit="confirmarAccion(event)" class="flex flex-col overflow-hidden">
+                <div class="px-6 py-5 space-y-4 overflow-y-auto">
+                    <!-- Resumen de la solicitud -->
+                    <div id="resumen" class="rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 p-4 text-xs grid grid-cols-2 gap-3">
+                        <div class="col-span-2"><p class="text-slate-400 uppercase tracking-wide text-[10px] font-semibold">Docente</p><p id="r-docente" class="font-bold text-sm"></p><p id="r-curso" class="text-slate-500"></p></div>
+                        <div><p class="text-slate-400 uppercase tracking-wide text-[10px] font-semibold">Destino</p><p id="r-destino" class="font-semibold"></p></div>
+                        <div><p class="text-slate-400 uppercase tracking-wide text-[10px] font-semibold">Fecha / Estudiantes</p><p id="r-fecha" class="font-semibold"></p></div>
+                    </div>
+
+                    <!-- APROBAR -->
+                    <div id="panel-aprobar" class="hidden space-y-4">
+                        <div>
+                            <p class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Condiciones de la aprobación</p>
+                            <div class="grid gap-2 text-sm">
+                                <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/40 cursor-pointer"><input type="checkbox" name="cond" value="Autorización escrita firmada por los apoderados de cada estudiante" class="mt-0.5 accent-emerald-600"> <span>Autorización firmada por los apoderados</span></label>
+                                <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/40 cursor-pointer"><input type="checkbox" name="cond" value="Contar con seguro escolar y transporte autorizado y confirmado" class="mt-0.5 accent-emerald-600"> <span>Seguro escolar y transporte confirmados</span></label>
+                                <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/40 cursor-pointer"><input type="checkbox" name="cond" value="Asistencia de un docente o asistente adicional como acompañante" class="mt-0.5 accent-emerald-600"> <span>Docente o asistente acompañante adicional</span></label>
+                                <label class="flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/40 cursor-pointer"><input type="checkbox" name="cond" value="Entregar informe de la salida a UTP dentro de 5 días hábiles" class="mt-0.5 accent-emerald-600"> <span>Informe posterior a UTP (5 días hábiles)</span></label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Mensaje adicional para el docente <span class="font-normal text-slate-400">(opcional)</span></label>
+                            <textarea id="ap-mensaje" rows="2" placeholder="Ej. Recuerde adjuntar la nómina actualizada..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none"></textarea>
+                        </div>
+                        <div>
+                            <p class="text-[10px] uppercase tracking-wide font-semibold text-slate-400 mb-1">Vista previa de la notificación</p>
+                            <div id="ap-preview" class="rounded-xl border border-emerald-200 dark:border-emerald-900 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-900 dark:text-emerald-200 p-3 text-xs leading-relaxed"></div>
+                        </div>
+                    </div>
+
+                    <!-- RECHAZAR -->
+                    <div id="panel-rechazar" class="hidden space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Motivo del rechazo <span class="text-rose-500">*</span></label>
+                            <select id="rc-motivo" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none">
+                                <option value="">Seleccione un motivo...</option>
+                                <option>Plazo de anticipación insuficiente</option>
+                                <option>Conflicto con calendario académico o evaluaciones</option>
+                                <option>Documentación incompleta</option>
+                                <option>Riesgo o seguridad no garantizados en el destino</option>
+                                <option>Falta de presupuesto o transporte disponible</option>
+                                <option>Otro motivo</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Detalle para el docente <span class="text-rose-500">*</span></label>
+                            <textarea id="rc-detalle" rows="3" maxlength="400" placeholder="Explique por qué no es posible aprobar la salida y, si corresponde, qué debería corregir..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none"></textarea>
+                            <p class="text-[10px] text-slate-400 text-right mt-1"><span id="rc-count">0</span>/400</p>
+                        </div>
+                        <label class="flex items-center gap-2.5 text-sm cursor-pointer"><input type="checkbox" id="rc-reenvio" checked class="accent-rose-600"> Permitir que el docente reenvíe una solicitud corregida</label>
+                        <p id="rc-error" class="hidden text-xs text-rose-600 dark:text-rose-400 font-medium"><i class="fa-solid fa-circle-exclamation mr-1"></i><span></span></p>
+                    </div>
+
+                    <!-- MODIFICAR -->
+                    <div id="panel-modificar" class="hidden space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Destino</label>
+                            <input id="md-destino" type="text" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div><label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Fecha de salida</label><input id="md-fecha" type="date" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none"></div>
+                            <div><label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">N° de estudiantes</label><input id="md-est" type="number" min="1" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none"></div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Motivo de la modificación <span class="text-rose-500">*</span></label>
+                            <textarea id="md-motivo" rows="3" placeholder="Indique qué se modificó y por qué (el docente recibirá este mensaje)..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-geesatBlue outline-none"></textarea>
+                        </div>
+                        <div id="md-cambios" class="hidden rounded-xl border border-sky-200 dark:border-sky-900 bg-sky-50 dark:bg-sky-950/40 text-sky-900 dark:text-sky-200 p-3 text-xs"></div>
+                        <p id="md-error" class="hidden text-xs text-rose-600 dark:text-rose-400 font-medium"><i class="fa-solid fa-circle-exclamation mr-1"></i><span></span></p>
+                    </div>
+                </div>
+
+                <!-- Pie -->
+                <div class="px-6 py-4 border-t border-slate-200 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-900/40 flex justify-end gap-3">
+                    <button type="button" onclick="cerrarModal()" class="px-4 py-2.5 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-700 transition-colors">Cancelar</button>
+                    <button id="modal-confirmar" type="submit" class="px-5 py-2.5 rounded-xl text-sm font-bold text-white shadow-md transition-all flex items-center gap-2"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-[70] hidden max-w-sm items-start gap-3 rounded-2xl bg-geesatBlueDark text-white px-5 py-4 shadow-2xl text-sm">
+        <i id="toast-icon" class="fa-solid fa-circle-check text-geesatAccent mt-0.5"></i>
+        <p id="toast-msg"></p>
+    </div>
+
     <!-- LÓGICA Y SCRIPTS DE UTP -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -320,19 +413,170 @@
             });
         });
 
-        // 3. ACCIONES DE UTP (Aprobar/Rechazar Solicitud)
-        function cambiarEstado(btn, accion) {
-            const fila = btn.closest('tr');
-            const tag = fila.querySelector('.estado-tag');
+        // 3. ACCIONES DE UTP (Aprobar / Rechazar / Modificar Solicitud)
+        const $ = id => document.getElementById(id);
+        let filaActual = null, modoActual = null;
 
-            if (accion === 'aprobar') {
-                tag.className = "estado-tag bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-xs font-bold px-2.5 py-1 rounded-full";
-                tag.textContent = "Aprobada por UTP";
-            } else if (accion === 'rechazar') {
-                tag.className = "estado-tag bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 text-xs font-bold px-2.5 py-1 rounded-full";
-                tag.textContent = "Rechazada";
+        const MODOS = {
+            aprobar:   { titulo: 'Aprobar solicitud',   sub: 'Defina las condiciones con que se autoriza la salida.', icono: 'fa-circle-check',   iconoCls: 'bg-emerald-100 text-emerald-600 dark:bg-emerald-950 dark:text-emerald-300', btn: 'bg-emerald-600 hover:bg-emerald-700', btnTxt: '<i class="fa-solid fa-check"></i> Confirmar aprobación' },
+            rechazar:  { titulo: 'Rechazar solicitud',  sub: 'El docente recibirá el motivo del rechazo.',            icono: 'fa-circle-xmark',   iconoCls: 'bg-rose-100 text-rose-600 dark:bg-rose-950 dark:text-rose-300',             btn: 'bg-rose-600 hover:bg-rose-700',       btnTxt: '<i class="fa-solid fa-xmark"></i> Confirmar rechazo' },
+            modificar: { titulo: 'Modificar solicitud', sub: 'Ajuste los datos y notifique al docente de los cambios.', icono: 'fa-pen-to-square', iconoCls: 'bg-sky-100 text-sky-600 dark:bg-sky-950 dark:text-sky-300',                 btn: 'bg-geesatBlue hover:bg-geesatBlueDark', btnTxt: '<i class="fa-solid fa-floppy-disk"></i> Guardar modificación' }
+        };
+
+        const fmtFecha = iso => {
+            if (!iso) return '';
+            const [y, m, d] = iso.split('-').map(Number);
+            const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+            return `${d} ${meses[m - 1]}, ${y}`;
+        };
+
+        const BTN = 'font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 shadow-sm transition-all text-white ';
+        function pintarAcciones(fila) {
+            const box = fila.querySelector('.acciones');
+            if (fila.dataset.estado === 'pendiente') {
+                box.innerHTML = `
+                    <button onclick="abrirModal(this,'aprobar')" class="${BTN}bg-emerald-600 hover:bg-emerald-700"><i class="fa-solid fa-check"></i> Aprobar</button>
+                    <button onclick="abrirModal(this,'modificar')" class="${BTN}bg-geesatBlue hover:bg-geesatBlueDark"><i class="fa-solid fa-pen"></i> Modificar</button>
+                    <button onclick="abrirModal(this,'rechazar')" class="${BTN}bg-rose-600 hover:bg-rose-700"><i class="fa-solid fa-xmark"></i> Rechazar</button>`;
+            } else {
+                box.innerHTML = `<button onclick="reabrirSolicitud(this)" class="font-semibold px-3 py-1.5 rounded-lg text-xs flex items-center gap-1 border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"><i class="fa-solid fa-rotate-left"></i> Reconsiderar</button>`;
             }
         }
+
+        function actualizarContador() {
+            const n = document.querySelectorAll('#tabla-solicitudes tr[data-estado="pendiente"]').length;
+            $('contador-pendientes').textContent = `${n} Pendiente${n === 1 ? '' : 's'}`;
+        }
+
+        function toast(msg, icono = 'fa-circle-check') {
+            $('toast-msg').textContent = msg;
+            $('toast-icon').className = `fa-solid ${icono} text-geesatAccent mt-0.5`;
+            const t = $('toast'); t.classList.remove('hidden'); t.classList.add('flex');
+            clearTimeout(t._h); t._h = setTimeout(() => { t.classList.add('hidden'); t.classList.remove('flex'); }, 4500);
+        }
+
+        function mostrarError(id, msg) {
+            const el = $(id); el.querySelector('span').textContent = msg; el.classList.remove('hidden');
+        }
+
+        function abrirModal(btn, modo) {
+            filaActual = btn.closest('tr'); modoActual = modo;
+            const d = filaActual.dataset, m = MODOS[modo];
+
+            $('modal-titulo').textContent = m.titulo;
+            $('modal-sub').textContent = m.sub;
+            $('modal-icono').className = `w-11 h-11 rounded-2xl flex items-center justify-center text-lg flex-shrink-0 ${m.iconoCls}`;
+            $('modal-icono').innerHTML = `<i class="fa-solid ${m.icono}"></i>`;
+            $('modal-confirmar').className = `px-5 py-2.5 rounded-xl text-sm font-bold text-white shadow-md transition-all flex items-center gap-2 ${m.btn}`;
+            $('modal-confirmar').innerHTML = m.btnTxt;
+
+            $('r-docente').textContent = d.docente; $('r-curso').textContent = d.curso;
+            $('r-destino').textContent = d.destino;
+            $('r-fecha').textContent = `${fmtFecha(d.fecha)} · ${d.estudiantes} est.`;
+            $('resumen').classList.toggle('hidden', modo === 'modificar');
+
+            ['aprobar', 'rechazar', 'modificar'].forEach(p => $('panel-' + p).classList.toggle('hidden', p !== modo));
+            $('modal-form').reset();
+            ['rc-error', 'md-error', 'md-cambios'].forEach(i => $(i).classList.add('hidden'));
+            $('rc-count').textContent = '0';
+
+            if (modo === 'aprobar') actualizarPreview();
+            if (modo === 'modificar') {
+                $('md-destino').value = d.destino; $('md-fecha').value = d.fecha; $('md-est').value = d.estudiantes;
+                $('md-fecha').min = new Date().toISOString().slice(0, 10);
+            }
+
+            const modal = $('modal-solicitud'); modal.classList.remove('hidden'); modal.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function cerrarModal() {
+            const modal = $('modal-solicitud'); modal.classList.add('hidden'); modal.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+            filaActual = null; modoActual = null;
+        }
+
+        function condicionesMarcadas() {
+            return [...document.querySelectorAll('input[name="cond"]:checked')].map(c => c.value);
+        }
+
+        function actualizarPreview() {
+            if (!filaActual) return;
+            const d = filaActual.dataset, conds = condicionesMarcadas(), extra = $('ap-mensaje').value.trim();
+            const p = $('ap-preview'); p.innerHTML = '';
+            const l1 = document.createElement('p');
+            l1.textContent = `Su salida a terreno a «${d.destino}» (${fmtFecha(d.fecha)}) ha sido APROBADA` + (conds.length ? ' con las siguientes condiciones:' : ' sin condiciones adicionales.');
+            p.appendChild(l1);
+            if (conds.length) {
+                const ul = document.createElement('ul'); ul.className = 'list-disc pl-5 mt-1 space-y-0.5';
+                conds.forEach(c => { const li = document.createElement('li'); li.textContent = c; ul.appendChild(li); });
+                p.appendChild(ul);
+            }
+            if (extra) { const e = document.createElement('p'); e.className = 'mt-2 italic'; e.textContent = `Nota de UTP: ${extra}`; p.appendChild(e); }
+        }
+
+        function resolver(estado, tagCls, tagTxt, nota, toastMsg, toastIcon) {
+            const fila = filaActual;
+            fila.dataset.estado = estado;
+            fila.querySelector('.estado-tag').className = `estado-tag ${tagCls} text-xs font-bold px-2.5 py-1 rounded-full`;
+            fila.querySelector('.estado-tag').textContent = tagTxt;
+            const n = fila.querySelector('.resolucion-nota');
+            n.textContent = nota; n.title = nota; n.classList.toggle('hidden', !nota);
+            pintarAcciones(fila); actualizarContador(); cerrarModal(); toast(toastMsg, toastIcon);
+        }
+
+        function confirmarAccion(e) {
+            e.preventDefault();
+            if (!filaActual) return;
+            const d = filaActual.dataset;
+
+            if (modoActual === 'aprobar') {
+                const conds = condicionesMarcadas();
+                const nota = conds.length ? `Condiciones: ${conds.length} (${conds.map(c => c.split(' ').slice(0, 3).join(' ')).join(', ')}…)` : 'Sin condiciones adicionales';
+                resolver('aprobada', 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300', 'Aprobada por UTP', nota,
+                    `Solicitud de ${d.docente} aprobada. Se notificó al docente.`);
+            }
+
+            else if (modoActual === 'rechazar') {
+                const motivo = $('rc-motivo').value, detalle = $('rc-detalle').value.trim();
+                if (!motivo) return mostrarError('rc-error', 'Seleccione un motivo del rechazo.');
+                if (detalle.length < 10) return mostrarError('rc-error', 'Explique el motivo con al menos 10 caracteres.');
+                resolver('rechazada', 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300', 'Rechazada', `${motivo}: ${detalle}` + ($('rc-reenvio').checked ? ' (puede reenviar)' : ''),
+                    `Solicitud de ${d.docente} rechazada. Se notificó el motivo.`, 'fa-circle-xmark');
+            }
+
+            else if (modoActual === 'modificar') {
+                const destino = $('md-destino').value.trim(), fecha = $('md-fecha').value, est = $('md-est').value, motivo = $('md-motivo').value.trim();
+                if (!destino || !fecha || !est || Number(est) < 1) return mostrarError('md-error', 'Complete destino, fecha y número de estudiantes.');
+                const cambios = [];
+                if (destino !== d.destino) cambios.push('destino');
+                if (fecha !== d.fecha) cambios.push('fecha');
+                if (String(est) !== d.estudiantes) cambios.push('estudiantes');
+                if (!cambios.length) return mostrarError('md-error', 'No hay cambios: modifique al menos un dato.');
+                if (motivo.length < 10) return mostrarError('md-error', 'Indique el motivo de la modificación (mín. 10 caracteres).');
+                d.destino = destino; d.fecha = fecha; d.estudiantes = est;
+                filaActual.querySelector('.c-destino').textContent = destino;
+                filaActual.querySelector('.c-fecha').textContent = fmtFecha(fecha);
+                filaActual.querySelector('.c-est').textContent = est;
+                resolver('modificada', 'bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-300', 'Modificada por UTP', `Cambió: ${cambios.join(', ')}. ${motivo}`,
+                    `Solicitud modificada. Se notificó a ${d.docente} para su confirmación.`, 'fa-pen-to-square');
+            }
+        }
+
+        function reabrirSolicitud(btn) {
+            filaActual = btn.closest('tr');
+            resolver('pendiente', 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300', 'Pendiente', '', 'La solicitud volvió a estado pendiente.', 'fa-rotate-left');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('#tabla-solicitudes tr').forEach(pintarAcciones);
+            actualizarContador();
+            document.querySelectorAll('input[name="cond"]').forEach(c => c.addEventListener('change', actualizarPreview));
+            $('ap-mensaje').addEventListener('input', actualizarPreview);
+            $('rc-detalle').addEventListener('input', e => $('rc-count').textContent = e.target.value.length);
+            $('modal-solicitud').addEventListener('click', e => { if (e.target.id === 'modal-solicitud') cerrarModal(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && modoActual) cerrarModal(); });
+        });
 
         // 4. PUBLICAR COMUNICADO
         function publicarAviso(e) {
