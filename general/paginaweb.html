@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GEESAT | Gestión de Salidas a Terreno</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600;700&display=swap">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="inicio1.css">
+</head>
+<body>
+
+<!-- =====================================================
+     MENÚ LATERAL
+===================================================== -->
+
+<aside class="sidebar" id="menu">
+
+    <div class="marca">
+        <img src="logo.png" alt="Logo GEESAT">
+        <div>
+            <h2>GEESAT</h2>
+            <p>Gestión de salidas a terreno</p>
+        </div>
+    </div>
+
+    <nav class="menu-lateral" aria-label="Secciones">
+
+        <a href="#inicio" class="opcion activo">
+            <span class="icono"><i class="fa-solid fa-house"></i></span>
+            <span>Inicio</span>
+        </a>
+
+        <a href="#cursos" class="opcion">
+            <span class="icono"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span>Cursos</span>
+        </a>
+
+        <a href="#calendario" class="opcion">
+            <span class="icono"><i class="fa-solid fa-calendar-days"></i></span>
+            <span>Calendario</span>
+        </a>
+
+        <a href="#gestion-terrenos" class="opcion solo-utp">
+            <span class="icono"><i class="fa-solid fa-map-location-dot"></i></span>
+            <span>Gestión de terrenos</span>
+        </a>
+
+        <a href="#avisos" class="opcion">
+            <span class="icono"><i class="fa-solid fa-bullhorn"></i></span>
+            <span>Avisos</span>
+        </a>
+
+        <a href="#publicar-comunicado" class="opcion solo-utp">
+            <span class="icono"><i class="fa-solid fa-file-pen"></i></span>
+            <span>Comunicados</span>
+        </a>
+
+        <a href="#configuracion" class="opcion">
+            <span class="icono"><i class="fa-solid fa-gear"></i></span>
+            <span>Configuración</span>
+        </a>
+
+    </nav>
+
+    <div class="pie-menu">
+        <a href="index.html" class="opcion">
+            <span class="icono"><i class="fa-solid fa-right-from-bracket"></i></span>
+            <span>Cerrar sesión</span>
+        </a>
+    </div>
+
+</aside>
+
+<div class="velo" id="velo"></div>
+
+
+<!-- =====================================================
+     BARRA SUPERIOR
+===================================================== -->
+
+<header class="barra">
+
+    <button class="boton-menu" id="botonMenu" type="button"
+            aria-label="Abrir menú" aria-controls="menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="barra-titulo">
+        <strong>Sistema de Gestión de Salidas a Terreno</strong>
+        <span>Panel UTP</span>
+    </div>
+
+    <div class="buscador">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="buscador" placeholder="Buscar en GEESAT..."
+               aria-label="Buscar en GEESAT">
+    </div>
+
+    <div class="selector-rol">
+        <label for="rolUsuario">Vista:</label>
+        <select id="rolUsuario" aria-label="Cambiar tipo de usuario">
+            <option value="utp">Coordinación UTP</option>
+            <option value="profesor">Profesor/a</option>
+        </select>
+    </div>
+    <button class="boton-tema" id="alternarTema" type="button" aria-pressed="false">
+        <i class="fa-solid fa-moon"></i><span>Modo oscuro</span>
+    </button>
+    <div class="perfil" aria-label="Perfil de usuario">
+        <i class="fa-solid fa-user"></i>
+        <span id="nombreRol">UTP</span>
+    </div>
+
+</header>
+
+
+<main class="contenido">
+
+
+<!-- =====================================================
+     INICIO
+===================================================== -->
+
+<section id="inicio" class="inicio">
+
+    <div class="encabezado">
+        <h1>Gestión de salidas a terreno</h1>
+        <p>
+            Plataforma para organizar, planificar y gestionar
+            las actividades de terreno de los diferentes cursos.
+        </p>
+    </div>
+
+    <div class="metricas">
+
+        <div class="metrica pendiente">
+            <div class="metrica-icono"><i class="fa-solid fa-clock"></i></div>
+            <div>
+                <strong id="pendientes">0</strong>
+                <span>Solicitudes pendientes</span>
+            </div>
+        </div>
+
+        <div class="metrica aprobada">
+            <div class="metrica-icono"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+                <strong id="aprobadas">0</strong>
+                <span>Solicitudes aprobadas</span>
+            </div>
+        </div>
+
+        <div class="metrica">
+            <div class="metrica-icono"><i class="fa-solid fa-bullhorn"></i></div>
+            <div>
+                <strong id="avisosNumero">8</strong>
+                <span>Avisos publicados</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CURSOS (panel siempre visible) + PRÓXIMAS SALIDAS
+===================================================== -->
+
+<div class="rejilla rejilla-cursos">
+
+    <section id="cursos" class="panel">
+
+        <div class="panel-cabecera">
+            <div>
+                <h2>Cursos</h2>
+                <p>Selecciona un curso para revisar sus actividades y salidas a terreno programadas.</p>
+            </div>
+        </div>
+
+        <div class="cursos-cuerpo">
+
+            <div class="selector-cursos selector-cursos-compacto">
+                <label for="nivelCursoVista">Nivel</label>
+                <select id="nivelCursoVista" class="selector-compacto">
+                    <option value="1">1° medio</option><option value="2">2° medio</option>
+                    <option value="3">3° medio</option><option value="4">4° medio</option>
+                </select>
+                <label for="letraCursoVista">Curso</label>
+                <select id="letraCursoVista" class="selector-compacto"></select>
+                <label for="codigoCursoVista">Número</label>
+                <select id="codigoCursoVista" class="selector-compacto"></select>
+                <button type="button" id="verCursoBtn" class="boton-ver-curso">Ver curso</button>
+                <p class="leyenda">El subrayado dorado indica cursos con actividades registradas.</p>
+            </div>
+
+            <div id="detalleCurso" class="detalle-curso" aria-live="polite"></div>
+
+        </div>
+
+    </section>
+
+
+    <section class="panel" aria-labelledby="tituloProximas">
+
+        <div class="panel-cabecera">
+            <h2 id="tituloProximas">Próximas salidas a terreno</h2>
+            <a href="#calendario" class="enlace-panel">Ver calendario</a>
+        </div>
+
+        <div class="salidas-lista">
+
+            <div class="salida-fila" data-id="1">
+                <div class="salida-icono"><i class="fa-solid fa-mountain"></i></div>
+                <div class="salida-info">
+                    <strong>Ingeniería Geológica</strong>
+                    <span>4°A · Yacimiento Norte</span>
+                </div>
+                <div class="salida-meta">
+                    <span class="salida-fecha">12 oct 2026</span>
+                    <span class="estado pendiente">Pendiente</span>
+                </div>
+            </div>
+
+            <div class="salida-fila" data-id="2">
+                <div class="salida-icono"><i class="fa-solid fa-industry"></i></div>
+                <div class="salida-info">
+                    <strong>Geometalurgia Aplicada</strong>
+                    <span>3°A · Planta de Tratamiento HidroIquique</span>
+                </div>
+                <div class="salida-meta">
+                    <span class="salida-fecha">25 oct 2026</span>
+                    <span class="estado pendiente">Pendiente</span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     CALENDARIO Y PROGRAMACIÓN
+===================================================== -->
+
+<section id="calendario" class="panel" data-seccion-rol="solicitud">
+
+    <div class="panel-cabecera">
+        <div>
+            <h2>Calendario</h2>
+            <p>Selecciona una fecha y envía tu solicitud de salida a terreno para revisión de UTP.</p>
+        </div>
+    </div>
+
+    <div class="calendario-cuerpo">
+
+        <div class="calendario-box">
+
+            <div class="calendario-titulo">
+                <button id="mesAnterior" type="button" aria-label="Mes anterior">‹</button>
+                <h3 id="mesActual"></h3>
+                <button id="mesSiguiente" type="button" aria-label="Mes siguiente">›</button>
+            </div>
+
+            <div class="semana">
+                <span>Lun</span>
+                <span>Mar</span>
+                <span>Mié</span>
+                <span>Jue</span>
+                <span>Vie</span>
+                <span>Sáb</span>
+                <span>Dom</span>
+            </div>
+
+            <div id="diasCalendario" class="dias"></div>
+
+        </div>
+
+        <div class="formulario">
+
+            <h3 id="tituloFormularioSalida">Solicitar salida a terreno</h3>
+
+            <div class="campo ancho">
+                <label for="fechaSalida">Fecha</label>
+                <input type="date" id="fechaSalida">
+            </div>
+
+            <div class="campo">
+                <label for="horaSalida">Hora de salida</label>
+                <input type="time" id="horaSalida">
+            </div>
+
+            <div class="campo">
+                <label for="horaRegreso">Hora de regreso</label>
+                <input type="time" id="horaRegreso">
+            </div>
+
+            <div class="campo ancho">
+                <label for="lugarSalida">Lugar</label>
+                <input type="text" id="lugarSalida" placeholder="Lugar de la salida">
+            </div>
+
+            <div class="campo ancho solo-profesor" hidden>
+                <label for="cursoSolicitud">Curso / asignatura</label>
+                <select id="cursoSolicitud" aria-label="Seleccionar curso"><option value="">Selecciona un curso</option></select>
+            </div>
+
+            <div class="campo ancho solo-profesor" hidden>
+                <label for="cantidadEstudiantes">Cantidad de estudiantes</label>
+                <input type="number" id="cantidadEstudiantes" min="1" placeholder="Cantidad">
+            </div>
+
+            <div class="campo ancho">
+                <label for="descripcionSalida">Descripción</label>
+                <textarea id="descripcionSalida" placeholder="Descripción de la actividad"></textarea>
+            </div>
+
+            <button id="programar" class="boton" type="button">
+                Programar salida
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="resumen" class="resumen">
+        <i class="fa-solid fa-circle-check"></i>
+        <div>
+            <strong>Salida programada</strong>
+            <p id="textoResumen"></p>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SEGUIMIENTO DEL DOCENTE
+===================================================== -->
+<section id="mis-solicitudes" class="panel solo-profesor" data-seccion-rol="profesor">
+    <div class="panel-cabecera">
+        <div>
+            <h2>Mis solicitudes</h2>
+            <p>Consulta el estado y las observaciones de UTP sobre tus solicitudes.</p>
+        </div>
+    </div>
+    <div id="misSolicitudes" class="lista-solicitudes-docente">
+        <p class="sin-actividad">Todavía no has enviado solicitudes en esta sesión.</p>
+    </div>
+</section>
+
+<!-- =====================================================
+     GESTIÓN DE TERRENOS
+===================================================== -->
+
+<section id="gestion-terrenos" class="panel solo-utp" data-seccion-rol="utp">
+
+    <div class="panel-cabecera">
+        <div>
+            <h2>Gestión de terrenos</h2>
+            <p>Revisa y administra las solicitudes de salidas a terreno realizadas por los docentes.</p>
+        </div>
+        <span class="periodo">Octubre 2026</span>
+    </div>
+
+    <div class="tabla-contenedor">
+
+        <table class="tabla-solicitudes">
+
+            <thead>
+                <tr>
+                    <th>Docente</th>
+                    <th>Curso / asignatura</th>
+                    <th>Lugar</th>
+                    <th>Fecha</th>
+                    <th>Estudiantes</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="tablaSolicitudes">
+
+                <tr data-id="1">
+                    <td><strong>Prof. Elena Silva</strong></td>
+                    <td>Ingeniería Geológica <small>4to Año</small></td>
+                    <td>Yacimiento Norte <small>Sector B</small></td>
+                    <td>12/10/2026</td>
+                    <td>38</td>
+                    <td><span class="estado pendiente">Pendiente</span></td>
+                    <td>
+                        <div class="acciones">
+                            <button class="accion aprobar" data-action="aprobar"
+                                    title="Aprobar" aria-label="Aprobar" type="button">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="accion rechazar" data-action="rechazar"
+                                    title="Rechazar" aria-label="Rechazar" type="button">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                            <button class="accion modificar" data-action="modificar"
+                                    title="Modificar" aria-label="Modificar" type="button">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr data-id="2">
+                    <td><strong>Prof. Roberto Gómez</strong></td>
+                    <td>Geometalurgia Aplicada <small>3er Año</small></td>
+                    <td>Planta de Tratamiento <small>HidroIquique</small></td>
+                    <td>25/10/2026</td>
+                    <td>25</td>
+                    <td><span class="estado pendiente">Pendiente</span></td>
+                    <td>
+                        <div class="acciones">
+                            <button class="accion aprobar" data-action="aprobar"
+                                    title="Aprobar" aria-label="Aprobar" type="button">
+                                <i class="fa-solid fa-check"></i>
+                            </button>
+                            <button class="accion rechazar" data-action="rechazar"
+                                    title="Rechazar" aria-label="Rechazar" type="button">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                            <button class="accion modificar" data-action="modificar"
+                                    title="Modificar" aria-label="Modificar" type="button">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AVISOS Y COMUNICADOS
+===================================================== -->
+
+<div class="rejilla rejilla-info">
+
+    <section id="avisos" class="panel">
+
+        <div class="panel-cabecera">
+            <div>
+                <h2>Avisos</h2>
+                <p>Comunicaciones e información relacionada con las actividades de terreno.</p>
+            </div>
+        </div>
+
+        <div id="listaAvisos" class="lista-avisos">
+
+            <div class="aviso">
+                <div class="aviso-icono"><i class="fa-solid fa-circle-info"></i></div>
+                <div>
+                    <span class="aviso-tipo">Información</span>
+                    <h3>Revisión de solicitudes</h3>
+                    <p>UTP revisará las solicitudes de salidas a terreno y comunicará su decisión.</p>
+                </div>
+            </div>
+
+            <div class="aviso">
+                <div class="aviso-icono"><i class="fa-solid fa-calendar-check"></i></div>
+                <div>
+                    <span class="aviso-tipo">Calendario</span>
+                    <h3>Calendario actualizado</h3>
+                    <p>Recuerda revisar las fechas de las próximas actividades.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="publicar-comunicado" class="panel solo-utp" data-seccion-rol="utp">
+
+        <div class="panel-cabecera">
+            <div>
+                <h2>Publicar comunicado</h2>
+                <p>La información publicada aparecerá en la sección de avisos.</p>
+            </div>
+        </div>
+
+        <div class="panel-cuerpo comunicado-form">
+
+            <div class="campo">
+                <label for="tituloComunicado">Título</label>
+                <input type="text" id="tituloComunicado" placeholder="Título del comunicado">
+            </div>
+
+            <div class="campo">
+                <label for="mensajeComunicado">Mensaje</label>
+                <textarea id="mensajeComunicado" placeholder="Escribe el contenido del comunicado..."></textarea>
+            </div>
+
+            <button id="publicarComunicado" class="boton" type="button">
+                <i class="fa-solid fa-paper-plane"></i>
+                Publicar comunicado
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     CONFIGURACIÓN
+===================================================== -->
+
+<section id="configuracion" class="panel">
+
+    <div class="panel-cabecera">
+        <h2>Configuración</h2>
+    </div>
+
+    <div class="panel-cuerpo config-fila">
+
+        <div>
+            <h3>Notificaciones</h3>
+            <p>Recibir avisos sobre nuevas solicitudes y actividades.</p>
+        </div>
+
+        <label class="switch">
+            <input type="checkbox" id="notificaciones" aria-label="Notificaciones" checked>
+            <span></span>
+        </label>
+
+        <div class="config-fila tema-config">
+            <div>
+                <h3>Modo oscuro</h3>
+                <p>Activa o desactiva el tema oscuro de la interfaz.</p>
+            </div>
+            <label class="switch">
+                <input type="checkbox" id="temaOscuro" aria-label="Activar modo oscuro">
+                <span></span>
+            </label>
+        </div>
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+
+    <div class="modal-contenido">
+
+        <button id="cerrarModal" class="cerrar-modal" type="button" aria-label="Cerrar">×</button>
+
+        <span class="modal-etiqueta">Gestión UTP</span>
+
+        <h2 id="modalTitulo">Gestionar solicitud</h2>
+
+        <p id="modalDescripcion"></p>
+
+
+        <div id="camposRechazo" class="modal-campos" hidden>
+
+            <div class="campo">
+                <label for="motivoRechazo">Motivo del rechazo</label>
+                <select id="motivoRechazo">
+                    <option value="">Seleccionar motivo</option>
+                    <option>Falta de documentación</option>
+                    <option>Fecha no disponible</option>
+                    <option>Falta de autorización</option>
+                    <option>Otro motivo</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="detalleRechazo">Detalles</label>
+                <textarea id="detalleRechazo" placeholder="Escribe los detalles..."></textarea>
+            </div>
+
+        </div>
+
+
+        <div id="camposModificar" class="modal-campos" hidden>
+
+            <div class="campo">
+                <label for="nuevaFecha">Nueva fecha</label>
+                <input type="date" id="nuevaFecha">
+            </div>
+
+            <div class="campo">
+                <label for="nuevoLugar">Nuevo lugar</label>
+                <input type="text" id="nuevoLugar" placeholder="Nuevo lugar">
+            </div>
+
+            <div class="campo">
+                <label for="nuevaCantidad">Cantidad de estudiantes</label>
+                <input type="number" id="nuevaCantidad" min="1">
+            </div>
+
+        </div>
+
+
+        <div class="modal-botones">
+            <button id="cancelarModal" class="boton secundario" type="button">Cancelar</button>
+            <button id="confirmarModal" class="boton" type="button">Confirmar</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+
+
+<script>
+
+/* =====================================================
+   UTILIDADES
+===================================================== */
+
+const $ = id => document.getElementById(id);
+
+let rolActual = localStorage.getItem("geesat_rol") || "utp";
+let solicitudesDocente = JSON.parse(localStorage.getItem("geesat_solicitudes") || "[]");
+let avisosGuardados = JSON.parse(localStorage.getItem("geesat_avisos") || "[]");
+
+function aplicarRol(rol) {
+    rolActual = rol;
+    localStorage.setItem("geesat_rol", rol);
+    document.body.dataset.rol = rol;
+    $("rolUsuario").value = rol;
+    $("nombreRol").textContent = rol === "utp" ? "UTP" : "Profesor/a";
+    document.querySelector(".barra-titulo span").textContent =
+        rol === "utp" ? "Panel de coordinación UTP" : "Panel docente";
+    $("tituloFormularioSalida").textContent =
+        rol === "utp" ? "Registrar salida" : "Solicitar salida a terreno";
+    $("programar").innerHTML = rol === "utp"
+        ? '<i class="fa-solid fa-calendar-plus"></i> Registrar salida'
+        : '<i class="fa-solid fa-paper-plane"></i> Enviar solicitud a UTP';
+    document.querySelectorAll(".solo-utp").forEach(el => el.hidden = rol !== "utp");
+    document.querySelectorAll(".solo-profesor").forEach(el => el.hidden = rol !== "profesor");
+    document.querySelectorAll(".menu-lateral .opcion").forEach(el => {
+        if (el.closest(".pie-menu")) return;
+        const href = el.getAttribute("href") || "";
+        const destino = document.querySelector(href);
+        el.hidden = !!(destino && destino.hidden);
+    });
+    if (rol === "profesor") renderMisSolicitudes();
+}
+
+$("rolUsuario").addEventListener("change", e => aplicarRol(e.target.value));
+
+function aplicarTema(oscuro) {
+    document.body.classList.toggle("tema-oscuro", oscuro);
+    $("temaOscuro").checked = oscuro;
+    $("alternarTema").setAttribute("aria-pressed", String(oscuro));
+    $("alternarTema").innerHTML = oscuro
+        ? '<i class="fa-solid fa-sun"></i><span>Modo claro</span>'
+        : '<i class="fa-solid fa-moon"></i><span>Modo oscuro</span>';
+    localStorage.setItem("geesat_tema_oscuro", oscuro ? "1" : "0");
+}
+const temaInicial = localStorage.getItem("geesat_tema_oscuro") === "1";
+$("alternarTema").addEventListener("click", () => aplicarTema(!document.body.classList.contains("tema-oscuro")));
+$("temaOscuro").addEventListener("change", e => aplicarTema(e.target.checked));
+aplicarTema(temaInicial);
+
+/* Evita que el texto escrito por un usuario se interprete como HTML */
+function escapar(texto) {
+
+    return String(texto).replace(/[&<>"']/g, caracter => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    }[caracter]));
+
+}
+
+let temporizadorToast;
+
+function mostrarToast(mensaje, tipo) {
+
+    const toast = $("toast");
+
+    toast.textContent = mensaje;
+    toast.className = `toast mostrar ${tipo}`;
+
+    clearTimeout(temporizadorToast);
+
+    temporizadorToast = setTimeout(() => {
+        toast.classList.remove("mostrar");
+    }, 3000);
+
+}
+
+
+
+/* =====================================================
+   CURSOS (el panel está siempre visible)
+===================================================== */
+
+const niveles = [
+    {
+        numero: 1,
+        nombre: "1° medio",
+        cursos: ["1A410", "1B410", "1C410", "1A510", "1B510", "1C510", "1D510", "1A610", "1B610", "1C610"]
+    },
+    {
+        numero: 2,
+        nombre: "2° medio",
+        cursos: ["2A410", "2B410", "2C410", "2A510", "2B510", "2C510", "2D510", "2A610", "2B610", "2C610"]
+    },
+    {
+        numero: 3,
+        nombre: "3° medio",
+        cursos: ["3A410", "3B410", "3A510", "3B510", "3C510", "3D510", "3E510", "3A610", "3B610", "3C610"]
+    },
+    {
+        numero: 4,
+        nombre: "4° medio",
+        cursos: ["4A410", "4B410", "4A510", "4B510", "4C510", "4D510", "4E510", "4A610", "4B610", "4C610"]
+    }
+];
+
+/* Los cursos de 1° y 2° medio pueden actualizarse cuando cambie la matrícula.
+   Los cursos de 3° y 4° medio se mantienen según la lista fija definida por UTP. */
+const actividadesPorCurso = {
+    "1A410": [
+        { titulo: "Salida de reconocimiento", lugar: "Valle de Azapa", fecha: "08/10/2026" }
+    ],
+    "2A410": [
+        { titulo: "Actividad geográfica", lugar: "Valle de Lluta", fecha: "10/10/2026" }
+    ],
+    "3A410": [
+        { titulo: "Geometalurgia Aplicada", lugar: "Planta de Tratamiento HidroIquique", fecha: "25/10/2026" }
+    ],
+    "4A410": [
+        { titulo: "Ingeniería Geológica", lugar: "Yacimiento Norte", fecha: "12/10/2026" }
+    ]
+};
+
+const detalleCurso = $("detalleCurso");
+const cursoSolicitud = $("cursoSolicitud");
+const nivelCursoVista = $("nivelCursoVista");
+const letraCursoVista = $("letraCursoVista");
+const codigoCursoVista = $("codigoCursoVista");
+const verCursoBtn = $("verCursoBtn");
+
+function cursosDelNivel(numeroNivel) {
+    const nivel = niveles.find(item => item.nombre.startsWith(`${numeroNivel}°`));
+    return nivel ? nivel.cursos : [];
+}
+
+function actualizarCodigosCurso() {
+    const prefijo = `${nivelCursoVista.value}${letraCursoVista.value}`;
+    const cursos = cursosDelNivel(nivelCursoVista.value).filter(curso => curso.startsWith(prefijo));
+    codigoCursoVista.innerHTML = cursos.map(curso => `<option value="${curso.slice(-3)}">${curso.slice(-3)}</option>`).join("");
+}
+
+function actualizarOpcionesCurso() {
+    const cursos = cursosDelNivel(nivelCursoVista.value);
+    const letras = [...new Set(cursos.map(curso => curso.match(/^\d([A-E])/)[1]))];
+    letraCursoVista.innerHTML = letras.map(letra => `<option value="${letra}">${nivelCursoVista.value}${letra}</option>`).join("");
+    actualizarCodigosCurso();
+}
+
+nivelCursoVista.addEventListener("change", actualizarOpcionesCurso);
+letraCursoVista.addEventListener("change", actualizarCodigosCurso);
+verCursoBtn.addEventListener("click", () => seleccionarCurso(`${nivelCursoVista.value}${letraCursoVista.value}${codigoCursoVista.value}`));
+
+niveles.forEach(nivel => nivel.cursos.forEach(curso => {
+    if (cursoSolicitud) {
+        const opcion = document.createElement("option");
+        opcion.value = curso;
+        opcion.textContent = curso;
+        cursoSolicitud.appendChild(opcion);
+    }
+}));
+actualizarOpcionesCurso();
+
+function seleccionarCurso(curso) {
+    const coincidencia = curso.match(/^(\d)([A-E])(\d{3})$/);
+    if (coincidencia) {
+        nivelCursoVista.value = coincidencia[1];
+        actualizarOpcionesCurso();
+        letraCursoVista.value = coincidencia[2];
+        actualizarCodigosCurso();
+        codigoCursoVista.value = coincidencia[3];
+    }
+
+
+    const actividades = actividadesPorCurso[curso] || [];
+
+    const cantidad =
+        actividades.length === 1
+            ? "1 actividad registrada"
+            : `${actividades.length} actividades registradas`;
+
+
+    let html = `
+        <div class="detalle-curso-cabecera">
+            <h3>Curso ${escapar(curso)}</h3>
+            <span>${cantidad}</span>
+        </div>
+    `;
+
+
+    if (actividades.length === 0) {
+
+        html += `
+            <p class="sin-actividad">
+                <i class="fa-regular fa-calendar-xmark"></i>
+                Este curso todavía no tiene actividades registradas.
+            </p>
+        `;
+
+    } else {
+
+        actividades.forEach(actividad => {
+
+            html += `
+                <div class="actividad-curso">
+                    <h4>${escapar(actividad.titulo)}</h4>
+                    <p><i class="fa-solid fa-location-dot"></i> ${escapar(actividad.lugar)}</p>
+                    <p><i class="fa-regular fa-calendar"></i> ${escapar(actividad.fecha)}</p>
+                </div>
+            `;
+
+        });
+
+    }
+
+    detalleCurso.innerHTML = html;
+
+}
+
+/* Al cargar la página ya se muestra un curso, así el panel nunca queda vacío */
+seleccionarCurso("1A410");
+
+
+
+/* =====================================================
+   CALENDARIO
+===================================================== */
+
+const diasCalendario = $("diasCalendario");
+const mesActual = $("mesActual");
+const fechaSalida = $("fechaSalida");
+
+const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+];
+
+/* Comienza en el mes actual */
+let fechaCalendario = new Date();
+fechaCalendario.setDate(1);
+
+
+function generarCalendario() {
+
+    diasCalendario.innerHTML = "";
+
+    const año = fechaCalendario.getFullYear();
+    const mes = fechaCalendario.getMonth();
+
+    mesActual.textContent = `${meses[mes]} ${año}`;
+
+    /* Lunes = 0 ... Domingo = 6 */
+    const primerDia = (new Date(año, mes, 1).getDay() + 6) % 7;
+
+    const cantidadDias = new Date(año, mes + 1, 0).getDate();
+
+    const hoy = new Date();
+
+
+    for (let i = 0; i < primerDia; i++) {
+
+        const vacio = document.createElement("div");
+        vacio.className = "dia vacio";
+
+        diasCalendario.appendChild(vacio);
+
+    }
+
+
+    for (let dia = 1; dia <= cantidadDias; dia++) {
+
+        const boton = document.createElement("button");
+        boton.type = "button";
+        boton.className = "dia";
+        boton.textContent = dia;
+
+        const fechaIso =
+            `${año}-${String(mes + 1).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
+
+        if (
+            año === hoy.getFullYear() &&
+            mes === hoy.getMonth() &&
+            dia === hoy.getDate()
+        ) {
+            boton.classList.add("hoy");
+        }
+
+        if (fechaSalida.value === fechaIso) {
+            boton.classList.add("seleccionado");
+        }
+
+        boton.addEventListener("click", () => {
+
+            document.querySelectorAll(".dia").forEach(d => {
+                d.classList.remove("seleccionado");
+            });
+
+            boton.classList.add("seleccionado");
+
+            fechaSalida.value = fechaIso;
+
+        });
+
+        diasCalendario.appendChild(boton);
+
+    }
+
+}
+
+
+$("mesAnterior").addEventListener("click", () => {
+
+    fechaCalendario.setMonth(fechaCalendario.getMonth() - 1);
+    generarCalendario();
+
+});
+
+$("mesSiguiente").addEventListener("click", () => {
+
+    fechaCalendario.setMonth(fechaCalendario.getMonth() + 1);
+    generarCalendario();
+
+});
+
+generarCalendario();
+
+
+
+/* =====================================================
+   PROGRAMAR SALIDA
+===================================================== */
+
+$("programar").addEventListener("click", () => {
+
+    const horaSalida = $("horaSalida").value;
+    const horaRegreso = $("horaRegreso").value;
+    const lugar = $("lugarSalida").value.trim();
+    const descripcion = $("descripcionSalida").value.trim();
+
+
+    if (!fechaSalida.value || !horaSalida || !horaRegreso || !lugar) {
+
+        mostrarToast("Completa todos los datos obligatorios.", "error");
+        return;
+
+    }
+
+
+    if (horaRegreso <= horaSalida) {
+
+        mostrarToast("La hora de regreso debe ser posterior a la salida.", "error");
+        return;
+
+    }
+
+
+    const fechaTexto =
+        new Date(fechaSalida.value + "T00:00:00").toLocaleDateString("es-CL", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        });
+
+
+    if (rolActual === "profesor") {
+        const solicitud = {
+            id: Date.now(),
+            docente: "Profesor/a actual",
+            curso: $("cursoSolicitud")?.value || "Por asignar",
+            lugar,
+            fecha: fechaTexto,
+            horaSalida,
+            horaRegreso,
+            descripcion,
+            estudiantes: $("cantidadEstudiantes")?.value || "Por confirmar",
+            estado: "Pendiente",
+            observacion: ""
+        };
+        solicitudesDocente.unshift(solicitud);
+        localStorage.setItem("geesat_solicitudes", JSON.stringify(solicitudesDocente));
+        agregarSolicitudTabla(solicitud);
+        renderMisSolicitudes();
+        mostrarToast("Solicitud enviada a UTP. Podrás revisar aquí su estado.", "success");
+    } else {
+        $("textoResumen").textContent =
+            `${fechaTexto} · ${horaSalida} - ${horaRegreso} · ${lugar}` +
+            (descripcion ? ` · ${descripcion}` : "");
+        $("resumen").classList.add("mostrar");
+        mostrarToast("Salida registrada correctamente.", "success");
+    }
+
+});
+
+
+
+/* =====================================================
+   MENÚ LATERAL: sección activa y menú en pantallas pequeñas
+===================================================== */
+
+const opciones = document.querySelectorAll(".menu-lateral .opcion[href^='#']");
+
+let bloqueoSeguimiento = false;
+
+function marcarOpcion(id) {
+
+    opciones.forEach(opcion => {
+        opcion.classList.toggle("activo", opcion.getAttribute("href") === `#${id}`);
+    });
+
+}
+
+const observador = new IntersectionObserver(entradas => {
+
+    if (bloqueoSeguimiento) return;
+
+    const visible = entradas.find(entrada => entrada.isIntersecting);
+
+    if (visible) marcarOpcion(visible.target.id);
+
+}, { rootMargin: "-20% 0px -65% 0px" });
+
+opciones.forEach(opcion => {
+
+    const seccion = document.querySelector(opcion.getAttribute("href"));
+
+    if (seccion) observador.observe(seccion);
+
+    /* Al hacer clic, se marca de inmediato y se espera a que termine el desplazamiento */
+    opcion.addEventListener("click", () => {
+
+        marcarOpcion(opcion.getAttribute("href").slice(1));
+
+        bloqueoSeguimiento = true;
+        setTimeout(() => { bloqueoSeguimiento = false; }, 900);
+
+        alternarMenu(false);
+
+    });
+
+});
+
+
+const botonMenu = $("botonMenu");
+
+function alternarMenu(abrir) {
+
+    document.body.classList.toggle("menu-abierto", abrir);
+    botonMenu.setAttribute("aria-expanded", String(abrir));
+
+}
+
+botonMenu.addEventListener("click", () => {
+    alternarMenu(!document.body.classList.contains("menu-abierto"));
+});
+
+$("velo").addEventListener("click", () => alternarMenu(false));
+
+
+
+/* =====================================================
+   SOLICITUDES COMPARTIDAS ENTRE VISTAS (prototipo local)
+===================================================== */
+function agregarSolicitudTabla(s) {
+    if (document.querySelector(`#tablaSolicitudes tr[data-id="${s.id}"]`)) return;
+    const fila = document.createElement("tr");
+    fila.dataset.id = s.id;
+    fila.dataset.solicitudDocente = "true";
+    fila.innerHTML = `
+        <td><strong>${escapar(s.docente)}</strong></td>
+        <td>${escapar(s.curso || "Por asignar")}</td>
+        <td>${escapar(s.lugar)}</td>
+        <td>${escapar(s.fecha)}</td>
+        <td>${escapar(s.estudiantes || "Por confirmar")}</td>
+        <td><span class="estado ${claseEstado(s.estado)}" title="${escapar(s.observacion || "")}">${escapar(s.estado)}</span></td>
+        <td><div class="acciones">
+            <button class="accion aprobar" data-action="aprobar" title="Aprobar" aria-label="Aprobar" type="button"><i class="fa-solid fa-check"></i></button>
+            <button class="accion rechazar" data-action="rechazar" title="Rechazar" aria-label="Rechazar" type="button"><i class="fa-solid fa-xmark"></i></button>
+            <button class="accion modificar" data-action="modificar" title="Modificar" aria-label="Modificar" type="button"><i class="fa-solid fa-pen"></i></button>
+        </div></td>`;
+    $("tablaSolicitudes").prepend(fila);
+    fila.querySelectorAll("[data-action]").forEach(btn => btn.addEventListener("click", () => {
+        filaActual = fila;
+        accionActual = btn.dataset.action;
+        abrirModal();
+    }));
+}
+function claseEstado(estado) {
+    if (estado === "Aprobada") return "aprobada";
+    if (estado === "Rechazada") return "rechazada";
+    if (estado === "Modificada") return "modificada";
+    return "pendiente";
+}
+function renderMisSolicitudes() {
+    const contenedor = $("misSolicitudes");
+    if (!contenedor) return;
+    if (!solicitudesDocente.length) {
+        contenedor.innerHTML = '<p class="sin-actividad">Todavía no has enviado solicitudes en esta sesión.</p>';
+        return;
+    }
+    contenedor.innerHTML = solicitudesDocente.map(s => `
+        <article class="solicitud-docente">
+            <div><strong>${escapar(s.lugar)}</strong><p>${escapar(s.fecha)} · ${escapar(s.horaSalida)}–${escapar(s.horaRegreso)}</p>
+            <p>${escapar(s.descripcion || "Sin descripción adicional")}</p>
+            ${s.observacion ? `<p class="observacion-utp"><strong>Respuesta de UTP:</strong> ${escapar(s.observacion)}</p>` : ""}</div>
+            <span class="estado ${claseEstado(s.estado)}">${escapar(s.estado)}</span>
+        </article>`).join("");
+}
+function sincronizarSolicitud(fila, estado, observacion) {
+    const s = solicitudesDocente.find(item => String(item.id) === String(fila.dataset.id));
+    if (!s) return;
+    s.estado = estado;
+    s.observacion = observacion || "";
+    localStorage.setItem("geesat_solicitudes", JSON.stringify(solicitudesDocente));
+    renderMisSolicitudes();
+}
+
+/* =====================================================
+   MODAL UTP
+===================================================== */
+
+const modal = $("modal");
+const camposRechazo = $("camposRechazo");
+const camposModificar = $("camposModificar");
+
+const textosModal = {
+
+    aprobar: {
+        titulo: "Aprobar solicitud",
+        descripcion: "Confirma la aprobación de esta solicitud de salida a terreno."
+    },
+
+    rechazar: {
+        titulo: "Rechazar solicitud",
+        descripcion: "Selecciona el motivo por el cual la solicitud será rechazada."
+    },
+
+    modificar: {
+        titulo: "Modificar solicitud",
+        descripcion: "Actualiza los datos correspondientes a la solicitud."
+    }
+
+};
+
+let filaActual = null;
+let accionActual = null;
+
+
+document.querySelectorAll("[data-action]").forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        filaActual = boton.closest("tr");
+        accionActual = boton.dataset.action;
+
+        abrirModal();
+
+    });
+
+});
+
+
+function abrirModal() {
+
+    $("modalTitulo").textContent = textosModal[accionActual].titulo;
+    $("modalDescripcion").textContent = textosModal[accionActual].descripcion;
+
+    camposRechazo.hidden = accionActual !== "rechazar";
+    camposModificar.hidden = accionActual !== "modificar";
+
+    /* Limpia los campos de usos anteriores */
+    ["motivoRechazo", "detalleRechazo", "nuevaFecha", "nuevoLugar", "nuevaCantidad"]
+        .forEach(id => { $(id).value = ""; });
+
+    modal.classList.add("mostrar");
+
+}
+
+
+function cerrarModal() {
+
+    modal.classList.remove("mostrar");
+
+    filaActual = null;
+    accionActual = null;
+
+}
+
+
+$("cerrarModal").addEventListener("click", cerrarModal);
+$("cancelarModal").addEventListener("click", cerrarModal);
+
+modal.addEventListener("click", evento => {
+    if (evento.target === modal) cerrarModal();
+});
+
+document.addEventListener("keydown", evento => {
+
+    if (evento.key === "Escape") {
+        cerrarModal();
+        alternarMenu(false);
+    }
+
+});
+
+
+$("confirmarModal").addEventListener("click", () => {
+
+    if (!filaActual) return;
+
+    const estado = filaActual.querySelector(".estado");
+
+
+    let observacionRespuesta = "";
+    if (accionActual === "aprobar") {
+
+        estado.textContent = "Aprobada";
+        estado.className = "estado aprobada";
+        estado.removeAttribute("title");
+
+        mostrarToast("Solicitud aprobada correctamente.", "success");
+
+    }
+
+
+    if (accionActual === "rechazar") {
+
+        const motivo = $("motivoRechazo").value;
+
+        if (!motivo) {
+
+            mostrarToast("Selecciona un motivo de rechazo.", "error");
+            return;
+
+        }
+
+        estado.textContent = "Rechazada";
+        estado.className = "estado rechazada";
+        const detalle = $("detalleRechazo").value.trim();
+        observacionRespuesta = detalle ? `${motivo}: ${detalle}` : motivo;
+        estado.title = observacionRespuesta;
+
+        mostrarToast("Solicitud rechazada. El docente podrá ver el motivo.", "success");
+
+    }
+
+
+    if (accionActual === "modificar") {
+
+        const nuevaFecha = $("nuevaFecha").value;
+        const nuevoLugar = $("nuevoLugar").value.trim();
+        const cantidad = $("nuevaCantidad").value;
+
+        if (!nuevaFecha && !nuevoLugar && !cantidad) {
+
+            mostrarToast("Completa al menos un dato para modificar.", "error");
+            return;
+
+        }
+
+        if (nuevaFecha) {
+
+            const [año, mes, dia] = nuevaFecha.split("-");
+            filaActual.cells[3].textContent = `${dia}/${mes}/${año}`;
+
+        }
+
+        if (nuevoLugar) filaActual.cells[2].textContent = nuevoLugar;
+
+        if (cantidad) filaActual.cells[4].textContent = cantidad;
+        observacionRespuesta = "UTP modificó los datos de la solicitud.";
+        estado.textContent = "Modificada";
+        estado.className = "estado modificada";
+
+        mostrarToast("Solicitud modificada. El docente podrá revisar el cambio.", "success");
+
+    }
+
+
+    /* Refleja el nuevo estado en "Próximas salidas" del inicio */
+    const espejo = document.querySelector(
+        `.salida-fila[data-id="${filaActual.dataset.id}"] .estado`
+    );
+
+    if (espejo) {
+        espejo.textContent = estado.textContent;
+        espejo.className = estado.className;
+    }
+
+    sincronizarSolicitud(filaActual, estado.textContent, observacionRespuesta || estado.title || "");
+    actualizarMetricas();
+    cerrarModal();
+
+});
+
+
+
+/* =====================================================
+   MÉTRICAS
+===================================================== */
+
+/* Solicitudes aprobadas anteriores a las que aparecen en la tabla (dato de ejemplo) */
+const APROBADAS_BASE = 12;
+
+function actualizarMetricas() {
+
+    const estados = document.querySelectorAll("#tablaSolicitudes .estado");
+
+    let pendientes = 0;
+    let aprobadas = 0;
+
+    estados.forEach(estado => {
+
+        if (estado.classList.contains("pendiente")) pendientes++;
+        if (estado.classList.contains("aprobada")) aprobadas++;
+
+    });
+
+    $("pendientes").textContent = pendientes;
+    $("aprobadas").textContent = APROBADAS_BASE + aprobadas;
+
+}
+
+actualizarMetricas();
+solicitudesDocente.forEach(agregarSolicitudTabla);
+avisosGuardados.slice().reverse().forEach(aviso => {
+    const nodo = document.createElement("div");
+    nodo.className = "aviso";
+    nodo.innerHTML = `<div class="aviso-icono"><i class="fa-solid fa-bullhorn"></i></div><div><span class="aviso-tipo">Comunicado · ${escapar(aviso.fecha)}</span><h3>${escapar(aviso.titulo)}</h3><p>${escapar(aviso.mensaje)}</p></div>`;
+    $("listaAvisos").prepend(nodo);
+});
+aplicarRol(rolActual);
+
+
+
+/* =====================================================
+   PUBLICAR COMUNICADO
+===================================================== */
+
+$("publicarComunicado").addEventListener("click", () => {
+
+    const titulo = $("tituloComunicado").value.trim();
+    const mensaje = $("mensajeComunicado").value.trim();
+
+
+    if (!titulo || !mensaje) {
+
+        mostrarToast("Completa el título y el mensaje.", "error");
+        return;
+
+    }
+
+
+    const fecha = new Date().toLocaleDateString("es-CL");
+
+    const nuevoAviso = document.createElement("div");
+    nuevoAviso.className = "aviso";
+
+    nuevoAviso.innerHTML = `
+        <div class="aviso-icono"><i class="fa-solid fa-bullhorn"></i></div>
+        <div>
+            <span class="aviso-tipo">Comunicado · ${fecha}</span>
+            <h3>${escapar(titulo)}</h3>
+            <p>${escapar(mensaje)}</p>
+        </div>
+    `;
+
+    $("listaAvisos").prepend(nuevoAviso);
+    avisosGuardados.unshift({ titulo, mensaje, fecha });
+    localStorage.setItem("geesat_avisos", JSON.stringify(avisosGuardados));
+
+    $("tituloComunicado").value = "";
+    $("mensajeComunicado").value = "";
+
+    const contador = $("avisosNumero");
+    contador.textContent = Number(contador.textContent) + 1;
+
+    mostrarToast("Comunicado publicado correctamente.", "success");
+
+});
+
+
+
+/* =====================================================
+   BUSCADOR
+===================================================== */
+
+$("buscador").addEventListener("input", function () {
+
+    const texto = this.value.toLowerCase().trim();
+
+    document
+        .querySelectorAll(".aviso, .actividad-curso, .salida-fila, #tablaSolicitudes tr")
+        .forEach(elemento => {
+
+            elemento.style.display =
+                elemento.textContent.toLowerCase().includes(texto)
+                    ? ""
+                    : "none";
+
+        });
+
+});
+
+</script>
+
+</body>
+</html>
